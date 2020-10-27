@@ -19,11 +19,19 @@
       <pubDate>Tue, 27 Oct 2020 02:13:16 GMT</pubDate>
       <description>
       
-        
-        
-          &lt;p&gt;uniapp &lt;/p&gt;
-&lt;p&gt;// 获取元素高度&lt;br&gt;        getDescBox (classname,cb) {&lt;br&gt;            // console.log(classname)&lt;br&gt;        　　uni.createSelectorQ
-        
+        &lt;p&gt;uniapp &lt;/p&gt;
+&lt;p&gt;// 获取元素高度&lt;br&gt;        getDescBox (classname,cb) {&lt;br&gt;            // console.log(classname)&lt;br&gt;        　　uni.createSelectorQuery()&lt;br&gt;            .in(this).select(‘.’+ classname)&lt;br&gt;            .boundingClientRect(result =&amp;gt; {&lt;br&gt;                　　　　if (result) {&lt;br&gt;                            if(cb &amp;amp;&amp;amp; typeof cb === ‘function’) return cb(result)&lt;br&gt;                　　　　} else {&lt;br&gt;                        console.log(‘获取吸顶距离失效’)&lt;br&gt;                　　　　}&lt;br&gt;            })&lt;br&gt;            .exec()&lt;br&gt;        },&lt;/p&gt;
+&lt;p&gt;input 坑 无法修改值&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    &amp;lt;input type=&amp;quot;number&amp;quot; v-model=&amp;quot;changeNum&amp;quot;   :min=&amp;quot;1&amp;quot; :cursor-spacing=&amp;quot;10&amp;quot;   @input=&amp;quot;chengeCount&amp;quot; /&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;​&lt;br&gt;​    chengeCount(n) {&lt;br&gt;​            console.log(n, ‘value’);&lt;br&gt;​            setTimeout(_ =&amp;gt; {&lt;br&gt;​                 这里修改 this.changeNum jiu可以了&lt;br&gt;​            }, 0);&lt;br&gt;​        }&lt;/p&gt;
+&lt;h2 id=&quot;mixins&quot;&gt;&lt;a href=&quot;#mixins&quot; class=&quot;headerlink&quot; title=&quot;mixins&quot;&gt;&lt;/a&gt;mixins&lt;/h2&gt;&lt;p&gt;分为全局mixins 以及局部mixins&lt;/p&gt;
+&lt;p&gt;优先级为 先全局再局部 再页面级别&lt;/p&gt;
+&lt;h3 id=&quot;定义&quot;&gt;&lt;a href=&quot;#定义&quot; class=&quot;headerlink&quot; title=&quot;定义&quot;&gt;&lt;/a&gt;定义&lt;/h3&gt;&lt;pre class=&quot; language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot; spellcheck=&quot;true&quot;&gt;// mixins  定义&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;onLoad&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;
       
       </description>
       
@@ -40,10 +48,12 @@
       <pubDate>Tue, 04 Aug 2020 08:39:54 GMT</pubDate>
       <description>
       
-        
-        
-          &lt;h1 id=&quot;小程序与app优缺点分别是什么？&quot;&gt;&lt;a href=&quot;#小程序与app优缺点分别是什么？&quot; class=&quot;headerlink&quot; title=&quot;小程序与app优缺点分别是什么？&quot;&gt;&lt;/a&gt;小程序与app优缺点分别是什么？&lt;/h1&gt;&lt;p&gt;app 安装 升级 需要下载
-        
+        &lt;h1 id=&quot;小程序与app优缺点分别是什么？&quot;&gt;&lt;a href=&quot;#小程序与app优缺点分别是什么？&quot; class=&quot;headerlink&quot; title=&quot;小程序与app优缺点分别是什么？&quot;&gt;&lt;/a&gt;小程序与app优缺点分别是什么？&lt;/h1&gt;&lt;p&gt;app 安装 升级 需要下载  小程序直接可以打开&lt;br&gt;小程序流量入口大 有强大的微信生态&lt;br&gt;推广方便  最新开放朋友圈分享&lt;br&gt;复杂应用不适合小程序，小程序文件大小限制，所以做不了太复杂的应用。&lt;br&gt;小程序维护成本低  不用考虑安卓或者ios  一套代码即可通用&lt;/p&gt;
+&lt;h1 id=&quot;简单描述下微信小程序的相关文件类型&quot;&gt;&lt;a href=&quot;#简单描述下微信小程序的相关文件类型&quot; class=&quot;headerlink&quot; title=&quot;简单描述下微信小程序的相关文件类型&quot;&gt;&lt;/a&gt;简单描述下微信小程序的相关文件类型&lt;/h1&gt;&lt;h2 id=&quot;页面的&quot;&gt;&lt;a href=&quot;#页面的&quot; class=&quot;headerlink&quot; title=&quot;页面的&quot;&gt;&lt;/a&gt;页面的&lt;/h2&gt;&lt;p&gt;​    wxml 页面结构&lt;/p&gt;
+&lt;p&gt;​    wxss 页面样式&lt;/p&gt;
+&lt;p&gt;​    json 配置当前页面引入组件及标题&lt;/p&gt;
+&lt;p&gt;​    js 页面逻辑&lt;/p&gt;
+&lt;h2 id=&quot;app-js&quot;&gt;&lt;a href=&quot;#app-js&quot; class=&quot;headerlink&quot; title=&quot;app.js&quot;&gt;&lt;/a&gt;app.js&lt;/h2&gt;&lt;p&gt;设置全局的基础数据等&lt;/p&gt;
       
       </description>
       
@@ -60,10 +70,23 @@
       <pubDate>Mon, 03 Aug 2020 13:47:31 GMT</pubDate>
       <description>
       
-        
-        
-          &lt;h2 id=&quot;1-css-盒模型&quot;&gt;&lt;a href=&quot;#1-css-盒模型&quot; class=&quot;headerlink&quot; title=&quot;1.  css 盒模型&quot;&gt;&lt;/a&gt;1.  css 盒模型&lt;/h2&gt;&lt;p&gt;   盒模型由元素内容 内边距 边框 外边距组成 , 盒模型种类有ie盒模型
-        
+        &lt;h2 id=&quot;1-css-盒模型&quot;&gt;&lt;a href=&quot;#1-css-盒模型&quot; class=&quot;headerlink&quot; title=&quot;1.  css 盒模型&quot;&gt;&lt;/a&gt;1.  css 盒模型&lt;/h2&gt;&lt;p&gt;   盒模型由元素内容 内边距 边框 外边距组成 , 盒模型种类有ie盒模型以及标准盒模型&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;box-sizing: content-box (标准盒模型)&lt;/p&gt;
+&lt;p&gt;width = 元素的内容区域宽度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;box-sizing: border-box (ie盒模型)&lt;/p&gt;
+&lt;p&gt;width = 元素的内容区域+ padding + border&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;2-margin-塌陷-合并&quot;&gt;&lt;a href=&quot;#2-margin-塌陷-合并&quot; class=&quot;headerlink&quot; title=&quot;2.  margin 塌陷 合并&quot;&gt;&lt;/a&gt;2.  margin 塌陷 合并&lt;/h2&gt;&lt;h3 id=&quot;1-margin-塌陷&quot;&gt;&lt;a href=&quot;#1-margin-塌陷&quot; class=&quot;headerlink&quot; title=&quot;1.  margin 塌陷&quot;&gt;&lt;/a&gt;1.  margin 塌陷&lt;/h3&gt;&lt;p&gt;  原理:父子嵌套元素在垂直方向的margin,父子元素是结合在一起的,他们两个的margin会取其中最大的值. 正常情况下,父级元素应该相对浏览器进行定位,子级相对父级定位. 但由于margin的塌陷,父级相对浏览器定位.而子级没有相对父级定位,子级相对父级,就像坍塌了一样.&lt;br&gt;  在文档流中，父元素的高度默认是被子元素撑开的也就是说 子元素有多高，父元素就有多高,但是当子元素设置浮动之后，子元素会完全脱离文档流此时将会导致子元素无法撑开父元素的高度，导致父元素高度塌陷&lt;br&gt;  解决办法:&lt;br&gt;    1. 给父元素设置变框或内边距&lt;br&gt;    2. 触发bfc(块级格式化上下文) ,改变父级渲染规则 给父盒子添加&lt;br&gt;      1) postion: absolute/fied&lt;br&gt;      2) display: inline-block&lt;br&gt;      3) float: left /right&lt;br&gt;      4) overflow:hidden&lt;br&gt;      以上四种方法都能触发bfc &lt;/p&gt;
+&lt;h3 id=&quot;2-margin合并&quot;&gt;&lt;a href=&quot;#2-margin合并&quot; class=&quot;headerlink&quot; title=&quot;2. margin合并&quot;&gt;&lt;/a&gt;2. margin合并&lt;/h3&gt;&lt;p&gt;原理: 两个兄弟结构元素垂直方向的margin是合并的&lt;br&gt;解决办法:  同样可以采用bfc方式  实际使用时值通过设置一个margin 来解决距离问题&lt;/p&gt;
+&lt;h3 id=&quot;构造函数new的过程&quot;&gt;&lt;a href=&quot;#构造函数new的过程&quot; class=&quot;headerlink&quot; title=&quot;构造函数new的过程&quot;&gt;&lt;/a&gt;构造函数new的过程&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;创建一个新对象&lt;/li&gt;
+&lt;li&gt;将构造函数的作用域赋给新对象(this指向新对象)&lt;/li&gt;
+&lt;li&gt;执行构造函数中的代码 ( 为新对象添加属性方法)&lt;/li&gt;
+&lt;li&gt;返回新对象&lt;/li&gt;
+&lt;/ol&gt;
       
       </description>
       
@@ -80,10 +103,10 @@
       <pubDate>Sun, 02 Aug 2020 14:51:55 GMT</pubDate>
       <description>
       
-        
-        
-          &lt;h2 id=&quot;1-父传子&quot;&gt;&lt;a href=&quot;#1-父传子&quot; class=&quot;headerlink&quot; title=&quot;1.父传子&quot;&gt;&lt;/a&gt;1.父传子&lt;/h2&gt;&lt;h6 id=&quot;1-props&quot;&gt;&lt;a href=&quot;#1-props&quot; class=&quot;headerlink&quot; title=
-        
+        &lt;h2 id=&quot;1-父传子&quot;&gt;&lt;a href=&quot;#1-父传子&quot; class=&quot;headerlink&quot; title=&quot;1.父传子&quot;&gt;&lt;/a&gt;1.父传子&lt;/h2&gt;&lt;h6 id=&quot;1-props&quot;&gt;&lt;a href=&quot;#1-props&quot; class=&quot;headerlink&quot; title=&quot;1) props :&quot;&gt;&lt;/a&gt;1) props :&lt;/h6&gt;&lt;p&gt;​    父组件中子组件标签绑定属性 在子组件中通过props接收&lt;/p&gt;
+&lt;h6 id=&quot;2-parent&quot;&gt;&lt;a href=&quot;#2-parent&quot; class=&quot;headerlink&quot; title=&quot;2) $parent :&quot;&gt;&lt;/a&gt;2) $parent :&lt;/h6&gt;&lt;p&gt;​    子组件通过$parent获取父组件中绑定的子组件属性&lt;/p&gt;
+&lt;h6 id=&quot;3-attrs-和-listeners&quot;&gt;&lt;a href=&quot;#3-attrs-和-listeners&quot; class=&quot;headerlink&quot; title=&quot;3)  $attrs 和 $listeners&quot;&gt;&lt;/a&gt;3)  $attrs 和 $listeners&lt;/h6&gt;&lt;p&gt;​      1) attrs 继承所有父组件属性值 不包括props style class 在子组件中通过v-bind=”$attrs” 继承父组件的所有属性&lt;br&gt;​      2) $listeners 包含父组件所有事件监听 在子组件中通过v-on=”$listeners” 继承父组件的事件监听&lt;br&gt;​      3) inheritattrs 默认为true 继承所有父组件属性作为普通html应用在子组件根元素上&lt;/p&gt;
+&lt;h2 id=&quot;2-子传父&quot;&gt;&lt;a href=&quot;#2-子传父&quot; class=&quot;headerlink&quot; title=&quot;2.子传父&quot;&gt;&lt;/a&gt;2.子传父&lt;/h2&gt;&lt;h6 id=&quot;1-emit&quot;&gt;&lt;a href=&quot;#1-emit&quot; class=&quot;headerlink&quot; title=&quot;1) $emit&quot;&gt;&lt;/a&gt;1) $emit&lt;/h6&gt;&lt;pre&gt;&lt;code&gt; 子组件通过 $emit(&amp;#39;事件&amp;#39;,值) 父组件通过监听 @事件 获取&lt;/code&gt;&lt;/pre&gt;
       
       </description>
       

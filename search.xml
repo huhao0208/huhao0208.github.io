@@ -1,42 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>gulp使用</title>
-    <url>/gulp%E4%BD%BF%E7%94%A8.html</url>
-    <content><![CDATA[<h1 id="watch-获取当前文件路径"><a href="#watch-获取当前文件路径" class="headerlink" title="watch 获取当前文件路径"></a>watch 获取当前文件路径</h1><pre class=" language-js"><code class="language-js">gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">"dev"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> watcher <span class="token operator">=</span> gulp<span class="token punctuation">.</span><span class="token function">watch</span><span class="token punctuation">(</span><span class="token string">"./source/_posts/**/*.md"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 网上的回调函数 event.path 无效 需用下面方式</span>
-  watcher<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"change"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
-    <span class="token keyword">let</span> path <span class="token operator">=</span> e<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">".md"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// e 为当前处理的文件  source/_posts/hexo添加本地图片.md</span>
-    path <span class="token operator">=</span> <span class="token string">"./"</span> <span class="token operator">+</span> path<span class="token punctuation">;</span>
-    path <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/(\\)/g</span><span class="token punctuation">,</span> <span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>path <span class="token operator">+</span> <span class="token string">"文件夹: 开始处理图片"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-    gulp
-      <span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span>path <span class="token operator">+</span> <span class="token string">"/*.*"</span><span class="token punctuation">)</span>
-      <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">cache</span><span class="token punctuation">(</span><span class="token function">tinypng_nokey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// cache (缓存已处理文件)</span>
-      <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-<h2 id="新建文章自动打开编辑器"><a href="#新建文章自动打开编辑器" class="headerlink" title="新建文章自动打开编辑器"></a>新建文章自动打开编辑器</h2><p>在文件更目录下新建 scripts 文件夹</p>
-<ol>
-<li><p>新建一个 js 文件,名称随意 每次 new 新文章时执行</p>
-<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> spawn <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"child_process"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>exec<span class="token punctuation">;</span>
-hexo<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"new"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment" spellcheck="true">// 打开编辑器</span>
-  <span class="token function">spawn</span><span class="token punctuation">(</span><span class="token string">'start  "D:\toolsTyporaTypora.exe" '</span> <span class="token operator">+</span> data<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token comment" spellcheck="true">// 运行 gulp dev 实时图片压缩</span>
-  <span class="token function">spawn</span><span class="token punctuation">(</span><span class="token string">"start gulp dev"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
-</li>
-</ol>
-]]></content>
-      <categories>
-        <category>gulp</category>
-      </categories>
-      <tags>
-        <tag>watch</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>hexo图片本地存储</title>
     <url>/hexo%E6%B7%BB%E5%8A%A0%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87.html</url>
     <content><![CDATA[<h1 id="Hexo-中添加本地图片"><a href="#Hexo-中添加本地图片" class="headerlink" title="Hexo 中添加本地图片"></a>Hexo 中添加本地图片</h1><h2 id="基本配置"><a href="#基本配置" class="headerlink" title="基本配置"></a>基本配置</h2><p>1.把主页配置文件_config.yml 里的 post_asset_folder:这个选项设置为 true</p>
@@ -120,6 +84,95 @@ root: /blog/</code></pre><p>最后结果如图<br><img src="/hexo%E6%B7%BB%E5%8A
       <tags>
         <tag>hexo</tag>
         <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>gulp使用</title>
+    <url>/gulp%E4%BD%BF%E7%94%A8.html</url>
+    <content><![CDATA[<h1 id="watch-获取当前文件路径"><a href="#watch-获取当前文件路径" class="headerlink" title="watch 获取当前文件路径"></a>watch 获取当前文件路径</h1><pre class=" language-js"><code class="language-js">gulp<span class="token punctuation">.</span><span class="token function">task</span><span class="token punctuation">(</span><span class="token string">"dev"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> watcher <span class="token operator">=</span> gulp<span class="token punctuation">.</span><span class="token function">watch</span><span class="token punctuation">(</span><span class="token string">"./source/_posts/**/*.md"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// 网上的回调函数 event.path 无效 需用下面方式</span>
+  watcher<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"change"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>e<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">></span> <span class="token punctuation">{</span>
+    <span class="token keyword">let</span> path <span class="token operator">=</span> e<span class="token punctuation">.</span><span class="token function">split</span><span class="token punctuation">(</span><span class="token string">".md"</span><span class="token punctuation">)</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span> <span class="token comment" spellcheck="true">// e 为当前处理的文件  source/_posts/hexo添加本地图片.md</span>
+    path <span class="token operator">=</span> <span class="token string">"./"</span> <span class="token operator">+</span> path<span class="token punctuation">;</span>
+    path <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token regex">/(\\)/g</span><span class="token punctuation">,</span> <span class="token string">"/"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>path <span class="token operator">+</span> <span class="token string">"文件夹: 开始处理图片"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    gulp
+      <span class="token punctuation">.</span><span class="token function">src</span><span class="token punctuation">(</span>path <span class="token operator">+</span> <span class="token string">"/*.*"</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span><span class="token function">cache</span><span class="token punctuation">(</span><span class="token function">tinypng_nokey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// cache (缓存已处理文件)</span>
+      <span class="token punctuation">.</span><span class="token function">pipe</span><span class="token punctuation">(</span>gulp<span class="token punctuation">.</span><span class="token function">dest</span><span class="token punctuation">(</span>path<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<h2 id="新建文章自动打开编辑器"><a href="#新建文章自动打开编辑器" class="headerlink" title="新建文章自动打开编辑器"></a>新建文章自动打开编辑器</h2><p>在文件更目录下新建 scripts 文件夹</p>
+<ol>
+<li><p>新建一个 js 文件,名称随意 每次 new 新文章时执行</p>
+<pre class=" language-js"><code class="language-js"><span class="token keyword">var</span> spawn <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">"child_process"</span><span class="token punctuation">)</span><span class="token punctuation">.</span>exec<span class="token punctuation">;</span>
+hexo<span class="token punctuation">.</span><span class="token function">on</span><span class="token punctuation">(</span><span class="token string">"new"</span><span class="token punctuation">,</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>data<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment" spellcheck="true">// 打开编辑器</span>
+  <span class="token function">spawn</span><span class="token punctuation">(</span><span class="token string">'start  "D:\toolsTyporaTypora.exe" '</span> <span class="token operator">+</span> data<span class="token punctuation">.</span>path<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment" spellcheck="true">// 运行 gulp dev 实时图片压缩</span>
+  <span class="token function">spawn</span><span class="token punctuation">(</span><span class="token string">"start gulp dev"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>gulp</category>
+      </categories>
+      <tags>
+        <tag>watch</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo使用问题</title>
+    <url>/netx%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98.html</url>
+    <content><![CDATA[<h2 id="分页上下页直接显示-html-字符串"><a href="#分页上下页直接显示-html-字符串" class="headerlink" title="分页上下页直接显示 html 字符串"></a>分页上下页直接显示 html 字符串</h2><p>分页文件位置 themes\next\layout_partials\pagination.swig<br>网上找到方法 测试失败:</p>
+<pre class=" language-js"><code class="language-js"> <span class="token punctuation">{</span><span class="token operator">%</span> autoescape <span class="token operator">%</span><span class="token punctuation">}</span>
+  <span class="token punctuation">{</span><span class="token punctuation">{</span>
+      <span class="token function">paginator</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+        prev_text<span class="token punctuation">:</span> <span class="token string">'&lt;i class="fa fa-angle-left">&lt;/i>'</span><span class="token punctuation">,</span>
+        next_text<span class="token punctuation">:</span> <span class="token string">'&lt;i class="fa fa-angle-right">&lt;/i>'</span><span class="token punctuation">,</span>
+        mid_size<span class="token punctuation">:</span> <span class="token number">1</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">}</span>
+  <span class="token punctuation">{</span><span class="token operator">%</span> endautoescape <span class="token operator">%</span><span class="token punctuation">}</span></code></pre>
+<p>没办法 那就按咱的来呗</p>
+<pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> page<span class="token punctuation">.</span>prev or page<span class="token punctuation">.</span>next <span class="token operator">%</span><span class="token punctuation">}</span>
+<span class="token operator">&lt;</span>nav <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"pagination"</span><span class="token operator">></span>
+<span class="token punctuation">{</span><span class="token punctuation">{</span>
+    <span class="token function">paginator</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      prev_text<span class="token punctuation">:</span> <span class="token string">'&lt;i class="fa fa-angle-left">&lt;/i>'</span><span class="token punctuation">,</span>
+      next_text<span class="token punctuation">:</span> <span class="token string">'&lt;i class="fa fa-angle-right">&lt;/i>'</span><span class="token punctuation">,</span>
+      mid_size<span class="token punctuation">:</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>nav<span class="token operator">></span>
+<span class="token operator">&lt;</span>script<span class="token operator">></span>
+<span class="token keyword">var</span> pDs <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.pagination .extend'</span><span class="token punctuation">)</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> pDs<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  pDs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> pDs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>innerText
+<span class="token punctuation">}</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+<span class="token punctuation">{</span><span class="token operator">%</span> endif <span class="token operator">%</span><span class="token punctuation">}</span></code></pre>
+<h2 id="背景图每日更换-用-bing-的图片"><a href="#背景图每日更换-用-bing-的图片" class="headerlink" title="背景图每日更换(用 bing 的图片)"></a>背景图每日更换(用 bing 的图片)</h2><p>通过 <a href="https://bird.ioliu.cn/v1接口" target="_blank" rel="noopener">https://bird.ioliu.cn/v1接口</a> 解决jsonp 回调</p>
+<pre class=" language-js"><code class="language-js"> <span class="token operator">&lt;</span>script<span class="token operator">></span>
+        <span class="token keyword">function</span> <span class="token function">cb</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
+            <span class="token keyword">let</span> url <span class="token operator">=</span> <span class="token string">'https://cn.bing.com'</span><span class="token operator">+</span>e<span class="token punctuation">.</span>images<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>url
+            document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>style<span class="token punctuation">.</span>background <span class="token operator">=</span><span class="token template-string"><span class="token string">` url(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">)`</span></span>
+        <span class="token punctuation">}</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+  <span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"https://bird.ioliu.cn/v1?url=https://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&amp;nc=1595433571841&amp;pid=hp&amp;callback=cb"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
+<h2 id="同时推送博客到github-coding"><a href="#同时推送博客到github-coding" class="headerlink" title="同时推送博客到github coding"></a>同时推送博客到github coding</h2><p>修改站点配置</p>
+<pre><code>deploy:
+  type: &#39;git&#39;
+  repository: 
+    github: https://github.com/XXX.github.io.git,master
+    coding: https://e.coding.net/xxx.git,master</code></pre>]]></content>
+      <categories>
+        <category>hexo</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>next主题</tag>
       </tags>
   </entry>
   <entry>
@@ -1345,59 +1398,6 @@ $$</code></pre>
       </tags>
   </entry>
   <entry>
-    <title>hexo使用问题</title>
-    <url>/netx%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98.html</url>
-    <content><![CDATA[<h2 id="分页上下页直接显示-html-字符串"><a href="#分页上下页直接显示-html-字符串" class="headerlink" title="分页上下页直接显示 html 字符串"></a>分页上下页直接显示 html 字符串</h2><p>分页文件位置 themes\next\layout_partials\pagination.swig<br>网上找到方法 测试失败:</p>
-<pre class=" language-js"><code class="language-js"> <span class="token punctuation">{</span><span class="token operator">%</span> autoescape <span class="token operator">%</span><span class="token punctuation">}</span>
-  <span class="token punctuation">{</span><span class="token punctuation">{</span>
-      <span class="token function">paginator</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-        prev_text<span class="token punctuation">:</span> <span class="token string">'&lt;i class="fa fa-angle-left">&lt;/i>'</span><span class="token punctuation">,</span>
-        next_text<span class="token punctuation">:</span> <span class="token string">'&lt;i class="fa fa-angle-right">&lt;/i>'</span><span class="token punctuation">,</span>
-        mid_size<span class="token punctuation">:</span> <span class="token number">1</span>
-      <span class="token punctuation">}</span><span class="token punctuation">)</span>
-    <span class="token punctuation">}</span><span class="token punctuation">}</span>
-  <span class="token punctuation">{</span><span class="token operator">%</span> endautoescape <span class="token operator">%</span><span class="token punctuation">}</span></code></pre>
-<p>没办法 那就按咱的来呗</p>
-<pre class=" language-js"><code class="language-js"><span class="token punctuation">{</span><span class="token operator">%</span> <span class="token keyword">if</span> page<span class="token punctuation">.</span>prev or page<span class="token punctuation">.</span>next <span class="token operator">%</span><span class="token punctuation">}</span>
-<span class="token operator">&lt;</span>nav <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"pagination"</span><span class="token operator">></span>
-<span class="token punctuation">{</span><span class="token punctuation">{</span>
-    <span class="token function">paginator</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
-      prev_text<span class="token punctuation">:</span> <span class="token string">'&lt;i class="fa fa-angle-left">&lt;/i>'</span><span class="token punctuation">,</span>
-      next_text<span class="token punctuation">:</span> <span class="token string">'&lt;i class="fa fa-angle-right">&lt;/i>'</span><span class="token punctuation">,</span>
-      mid_size<span class="token punctuation">:</span> <span class="token number">1</span>
-    <span class="token punctuation">}</span><span class="token punctuation">)</span>
-  <span class="token punctuation">}</span><span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>nav<span class="token operator">></span>
-<span class="token operator">&lt;</span>script<span class="token operator">></span>
-<span class="token keyword">var</span> pDs <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">querySelectorAll</span><span class="token punctuation">(</span><span class="token string">'.pagination .extend'</span><span class="token punctuation">)</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">var</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;</span> pDs<span class="token punctuation">.</span>length<span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  pDs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>innerHTML <span class="token operator">=</span> pDs<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">.</span>innerText
-<span class="token punctuation">}</span>
-<span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-<span class="token punctuation">{</span><span class="token operator">%</span> endif <span class="token operator">%</span><span class="token punctuation">}</span></code></pre>
-<h2 id="背景图每日更换-用-bing-的图片"><a href="#背景图每日更换-用-bing-的图片" class="headerlink" title="背景图每日更换(用 bing 的图片)"></a>背景图每日更换(用 bing 的图片)</h2><p>通过 <a href="https://bird.ioliu.cn/v1接口" target="_blank" rel="noopener">https://bird.ioliu.cn/v1接口</a> 解决jsonp 回调</p>
-<pre class=" language-js"><code class="language-js"> <span class="token operator">&lt;</span>script<span class="token operator">></span>
-        <span class="token keyword">function</span> <span class="token function">cb</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{</span>
-            <span class="token keyword">let</span> url <span class="token operator">=</span> <span class="token string">'https://cn.bing.com'</span><span class="token operator">+</span>e<span class="token punctuation">.</span>images<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>url
-            document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>style<span class="token punctuation">.</span>background <span class="token operator">=</span><span class="token template-string"><span class="token string">` url(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>url<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">)`</span></span>
-        <span class="token punctuation">}</span>
-  <span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
-  <span class="token operator">&lt;</span>script src<span class="token operator">=</span><span class="token string">"https://bird.ioliu.cn/v1?url=https://cn.bing.com/HPImageArchive.aspx?format=js&amp;idx=0&amp;n=1&amp;nc=1595433571841&amp;pid=hp&amp;callback=cb"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span></code></pre>
-<h2 id="同时推送博客到github-coding"><a href="#同时推送博客到github-coding" class="headerlink" title="同时推送博客到github coding"></a>同时推送博客到github coding</h2><p>修改站点配置</p>
-<pre><code>deploy:
-  type: &#39;git&#39;
-  repository: 
-    github: https://github.com/XXX.github.io.git,master
-    coding: https://e.coding.net/xxx.git,master</code></pre>]]></content>
-      <categories>
-        <category>hexo</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>next主题</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>node.js爬虫</title>
     <url>/node-js%E7%88%AC%E8%99%AB.html</url>
     <content><![CDATA[<h2 id="学习-node-js-副产品-效率较低"><a href="#学习-node-js-副产品-效率较低" class="headerlink" title="学习 node.js 副产品 效率较低"></a>学习 node.js 副产品 效率较低</h2><p>主要问题是图片反爬机制 需要设置 Referer 其余比较简单</p>
@@ -2348,15 +2348,15 @@ Vue<span class="token punctuation">.</span><span class="token function">mixin</s
       </tags>
   </entry>
   <entry>
-    <title>webpack笔记</title>
-    <url>/webpack%E7%AC%94%E8%AE%B0.html</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>vue插件实现方式</title>
     <url>/vue%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F.html</url>
     <content><![CDATA[<h2 id="暂无-待续"><a href="#暂无-待续" class="headerlink" title="暂无 待续"></a>暂无 待续</h2><p>1.添加全局方法或属性</p>
 <a id="more"></a>]]></content>
+  </entry>
+  <entry>
+    <title>webpack笔记</title>
+    <url>/webpack%E7%AC%94%E8%AE%B0.html</url>
+    <content><![CDATA[]]></content>
   </entry>
   <entry>
     <title>前端实现图片下载功能</title>

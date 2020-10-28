@@ -9,8 +9,21 @@
     <atom:link href="/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description></description>
-    <pubDate>Tue, 27 Oct 2020 02:15:39 GMT</pubDate>
+    <pubDate>Wed, 28 Oct 2020 03:47:35 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>111</title>
+      <link>https://blog.huhao.ink/111.html</link>
+      <guid>https://blog.huhao.ink/111.html</guid>
+      <pubDate>Wed, 28 Oct 2020 03:47:35 GMT</pubDate>
+      <description>
+      
+      </description>
+      
+      
+      <comments>https://blog.huhao.ink/111.html#disqus_thread</comments>
+    </item>
     
     <item>
       <title>uniapp笔记</title>
@@ -114,23 +127,6 @@
       <content:encoded><![CDATA[<h2 id="1-父传子"><a href="#1-父传子" class="headerlink" title="1.父传子"></a>1.父传子</h2><h6 id="1-props"><a href="#1-props" class="headerlink" title="1) props :"></a>1) props :</h6><p>​    父组件中子组件标签绑定属性 在子组件中通过props接收</p><h6 id="2-parent"><a href="#2-parent" class="headerlink" title="2) $parent :"></a>2) $parent :</h6><p>​    子组件通过$parent获取父组件中绑定的子组件属性</p><h6 id="3-attrs-和-listeners"><a href="#3-attrs-和-listeners" class="headerlink" title="3)  $attrs 和 $listeners"></a>3)  $attrs 和 $listeners</h6><p>​      1) attrs 继承所有父组件属性值 不包括props style class 在子组件中通过v-bind=”$attrs” 继承父组件的所有属性<br>​      2) $listeners 包含父组件所有事件监听 在子组件中通过v-on=”$listeners” 继承父组件的事件监听<br>​      3) inheritattrs 默认为true 继承所有父组件属性作为普通html应用在子组件根元素上</p><h2 id="2-子传父"><a href="#2-子传父" class="headerlink" title="2.子传父"></a>2.子传父</h2><h6 id="1-emit"><a href="#1-emit" class="headerlink" title="1) $emit"></a>1) $emit</h6><pre><code> 子组件通过 $emit(&#39;事件&#39;,值) 父组件通过监听 @事件 获取</code></pre><h6 id="2-children"><a href="#2-children" class="headerlink" title="2) $children"></a>2) $children</h6><p>​    获取所有子组件 </p><h6 id="3-ref"><a href="#3-ref" class="headerlink" title="3) ref"></a>3) ref</h6><p>​     绑定 $refs 获取  父组件中子组件标签绑定ref 父组件通过this.$refs 获取</p><h2 id="3-兄弟组件传值"><a href="#3-兄弟组件传值" class="headerlink" title="3.兄弟组件传值"></a>3.兄弟组件传值</h2><p>​    1) 通过bus总线传值    this.$emit  this.$on传递</p><p>​    2) 子传父 父传子</p><h2 id="4-全局"><a href="#4-全局" class="headerlink" title="4.全局"></a>4.全局</h2><p>​    1)Vue.observable</p><p>​        新建store.js</p><pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> Vue <span class="token keyword">from</span> <span class="token string">'vue'</span><span class="token comment" spellcheck="true">// 通过Vue.observable创建一个可响应的对象</span><span class="token keyword">export</span> <span class="token keyword">const</span> store <span class="token operator">=</span> Vue<span class="token punctuation">.</span><span class="token function">observable</span><span class="token punctuation">(</span><span class="token punctuation">{</span>  userInfo<span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">,</span>  age<span class="token punctuation">:</span><span class="token string">''</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token comment" spellcheck="true">// 定义 mutations, 修改属性</span><span class="token keyword">export</span> <span class="token keyword">const</span> mutations <span class="token operator">=</span> <span class="token punctuation">{</span>  <span class="token function">setUserInfo</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>​    store<span class="token punctuation">.</span>userInfo <span class="token operator">=</span> val  <span class="token punctuation">}</span><span class="token punctuation">,</span>  <span class="token function">setAge</span><span class="token punctuation">(</span>val<span class="token punctuation">)</span><span class="token punctuation">{</span>​    store<span class="token punctuation">.</span>age <span class="token operator">=</span> val  <span class="token punctuation">}</span><span class="token punctuation">}</span></code></pre><p>需要的地方引用</p><pre class=" language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> store<span class="token punctuation">,</span> mutations<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'../store.js'</span><span class="token punctuation">;</span><span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>    computed<span class="token punctuation">:</span> <span class="token punctuation">{</span>        <span class="token function">userInfor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>            <span class="token keyword">return</span> store<span class="token punctuation">.</span>userInfo        <span class="token punctuation">}</span><span class="token punctuation">,</span>        <span class="token function">age</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>            <span class="token keyword">return</span> store<span class="token punctuation">.</span>age        <span class="token punctuation">}</span>    <span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p> 修改时 调用 store.js 中mutations中定义的方法修改即可</p><p>2) $root 这个修改不会更新模板 需要强制更新 this$forceUpdate()</p><p>3) vuex</p><ul><li><p>state 存放状态 </p></li><li><p>mutations state成员操作</p></li><li><p>getters 加工state成员给外界</p></li><li><p>actions 异步操作</p></li><li><p>modules 模块化状态管理</p></li></ul><p>3) provide inject</p><p>​    用法就是在一个组件中provide一个属性，另一个组件inject，就可以在这个组件中访问前面组件的属性</p><p><strong>provide / inject API 主要解决了跨级组件间的通信问题，不过它的使用场景，主要是子组件获取上级组件的状态，跨级组件间建立了一种主动提供与依赖注入的关系。</strong></p>]]></content:encoded>
       
       <comments>https://blog.huhao.ink/vue%E4%BC%A0%E5%80%BC.html#disqus_thread</comments>
-    </item>
-    
-    <item>
-      <title>vue插件实现方式</title>
-      <link>https://blog.huhao.ink/vue%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F.html</link>
-      <guid>https://blog.huhao.ink/vue%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F.html</guid>
-      <pubDate>Sun, 02 Aug 2020 12:04:30 GMT</pubDate>
-      <description>
-      
-        &lt;h2 id=&quot;暂无-待续&quot;&gt;&lt;a href=&quot;#暂无-待续&quot; class=&quot;headerlink&quot; title=&quot;暂无 待续&quot;&gt;&lt;/a&gt;暂无 待续&lt;/h2&gt;&lt;p&gt;1.添加全局方法或属性&lt;/p&gt;
-      
-      </description>
-      
-      
-      <content:encoded><![CDATA[<h2 id="暂无-待续"><a href="#暂无-待续" class="headerlink" title="暂无 待续"></a>暂无 待续</h2><p>1.添加全局方法或属性</p><a id="more"></a>]]></content:encoded>
-      
-      <comments>https://blog.huhao.ink/vue%E6%8F%92%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F.html#disqus_thread</comments>
     </item>
     
   </channel>

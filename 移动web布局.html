@@ -1,0 +1,593 @@
+<!DOCTYPE html><html class="theme-next gemini use-motion" lang=zh-Hans><head><meta charset=UTF-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1"><meta name=theme-color content=#222><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel=stylesheet><meta http-equiv=Cache-Control content=no-transform><meta http-equiv=Cache-Control content=no-siteapp><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel=stylesheet type=text/css><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel=stylesheet type=text/css><link href="/css/main.css?v=5.1.4" rel=stylesheet type=text/css><link rel=apple-touch-icon sizes=180x180 href="/images/H.png?v=5.1.4"><link rel=icon type=image/png sizes=32x32 href="/images/favicon-32x32-next.ico?v=5.1.4"><link rel=icon type=image/png sizes=16x16 href="/images/favicon-16x16-next.ico?v=5.1.4"><link rel=mask-icon href="/images/logo.svg?v=5.1.4" color=#222><meta name=keywords content=rem,flex,移动web,布局,less><link rel=alternate href=/rss2.xml title=h-blog type=application/atom+xml><meta name=description content="移动 web 开发流式布局1.0 移动端基础1.1 浏览器现状PC 端常见浏览器：360 浏览器、谷歌浏览器、火狐浏览器、QQ 浏览器、百度浏览器、搜狗浏览器、IE 浏览器。 移动端常见浏览器：UC 浏览器，QQ 浏览器，欧朋浏览器，百度手机浏览器，360 安全浏览器，谷歌浏览器，搜狗手机浏览器，猎豹浏览器，以及其他杂牌浏览器。 国内的 UC 和 QQ，百度等手机浏览器都是根据 Webkit 修改"><meta property=og:type content=article><meta property=og:title content=移动web布局><meta property=og:url content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80.html><meta property=og:site_name content=h-blog><meta property=og:description content="移动 web 开发流式布局1.0 移动端基础1.1 浏览器现状PC 端常见浏览器：360 浏览器、谷歌浏览器、火狐浏览器、QQ 浏览器、百度浏览器、搜狗浏览器、IE 浏览器。 移动端常见浏览器：UC 浏览器，QQ 浏览器，欧朋浏览器，百度手机浏览器，360 安全浏览器，谷歌浏览器，搜狗手机浏览器，猎豹浏览器，以及其他杂牌浏览器。 国内的 UC 和 QQ，百度等手机浏览器都是根据 Webkit 修改"><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/1-1595375347276.png><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/2.png><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/3-1595374103218.png><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/5.png><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/6-1595374092186.jpg><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/7-1595374089043.jpg><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/2-1595374079456.jpg><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/3.jpg><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/4.jpg><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/5-1595374068987.jpg><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/6-1595374065019.jpg><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/1.jpg><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/2-1595374058312.jpg><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/3.png><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/4.png><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/5.jpg><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/6.jpg><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/7.jpg><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/1.png><meta property=og:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/2.jpg><meta property=article:published_time content=2020-07-21T23:24:57.000Z><meta property=article:modified_time content=2020-10-27T02:01:03.017Z><meta property=article:author content="hao ~"><meta property=article:tag content=rem><meta property=article:tag content=flex><meta property=article:tag content=移动web><meta property=article:tag content=布局><meta property=article:tag content=less><meta name=twitter:card content=summary><meta name=twitter:image content=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/1-1595375347276.png><script type=text/javascript id=hexo.configurations>
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script><link rel=canonical href=https://blog.huhao.ink/移动web布局.html><title>移动web布局 | h-blog</title><script type=text/javascript>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?20063670947234e4bdc0c9d19a9a4102";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><meta name=generator content="Hexo 4.2.1"></head><body itemscope itemtype=http://schema.org/WebPage lang=zh-Hans><div class="container sidebar-position-left page-post-detail"><div class=headband></div><header id=header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-wrapper><div class=site-meta><div class=custom-logo-site-title><a href="/" class=brand rel=start><span class=logo-line-before><i></i></span><h1 class=site-title>h-blog</h1><span class=logo-line-after><i></i></span></a></div><h1 class=site-subtitle itemprop=description>千里之行，始于足下</h1></div><div class=site-nav-toggle><button><span class=btn-bar></span> <span class=btn-bar></span> <span class=btn-bar></span></button></div></div><nav class=site-nav><ul id=menu class=menu><li class="menu-item menu-item-home"><a href="/" rel=section><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel=section><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel=section><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel=section><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-search"><a href=javascript:; class=popup-trigger><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class=site-search><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class=search-icon><i class="fa fa-search"></i></span> <span class=popup-btn-close><i class="fa fa-times-circle"></i></span><div class=local-search-input-wrapper><input autocomplete=off placeholder=搜索... spellcheck=false type=text id=local-search-input></div></div><div id=local-search-result></div></div></div></nav><meta name=keywords content=rem,flex,移动web,布局,less></div></header><main id=main class=main><div class=main-inner><div class=content-wrap><div id=content class=content><div id=posts class=posts-expand><article class="post post-type-normal" itemscope itemtype=http://schema.org/Article><div class=post-block><link itemprop=mainEntityOfPage href=https://blog.huhao.ink/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80.html><span hidden itemprop=author itemscope itemtype=http://schema.org/Person><meta itemprop=name content="hao ~"><meta itemprop=description><meta itemprop=image content=/images/avatar.png></span> <span hidden itemprop=publisher itemscope itemtype=http://schema.org/Organization><meta itemprop=name content=h-blog></span><header class=post-header><h2 class=post-title itemprop="name headline">移动web布局</h2><div class=post-meta><span class=post-time><span class=post-meta-item-icon><i class="fa fa-calendar-o"></i></span> <span class=post-meta-item-text>发表于</span><time title=创建于 itemprop="dateCreated datePublished" datetime=2020-07-22T07:24:57+08:00>2020-07-22</time><span class=post-meta-divider>|</span> <span class=post-meta-item-icon><i class="fa fa-calendar-check-o"></i></span> <span class=post-meta-item-text>更新于&#58;</span><time title=更新于 itemprop=dateModified datetime=2020-10-27T10:01:03+08:00>2020-10-27</time></span> <span class=post-category><span class=post-meta-divider>|</span> <span class=post-meta-item-icon><i class="fa fa-folder-o"></i></span> <span class=post-meta-item-text>分类于</span> <span itemprop=about itemscope itemtype=http://schema.org/Thing><a href="/categories/%E7%A7%BB%E5%8A%A8%E5%B8%83%E5%B1%80/" itemprop=url rel=index><span itemprop=name>移动布局</span></a></span></span> <span class=post-comments-count><span class=post-meta-divider>|</span> <span class=post-meta-item-icon><i class="fa fa-comment-o"></i></span> <a href=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80.html#comments itemprop=discussionUrl><span class="post-comments-count valine-comment-count" data-xid=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80.html itemprop=commentCount></span></a></span> <span id=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80.html class=leancloud_visitors data-flag-title=移动web布局><span class=post-meta-divider>|</span> <span class=post-meta-item-icon><i class="fa fa-eye"></i></span> <span class=post-meta-item-text>阅读次数&#58;</span> <span class=leancloud-visitors-count></span></span> <span class=post-meta-divider>|</span> <span class=page-pv><i class="fa fa-file-o"></i> <span class=busuanzi-value id=busuanzi_value_page_pv></span></span></div></header><div class=post-body itemprop=articleBody><h1 id=移动-web-开发流式布局><a href=#移动-web-开发流式布局 class=headerlink title="移动 web 开发流式布局"></a>移动 web 开发流式布局</h1><h3 id=1-0-移动端基础><a href=#1-0-移动端基础 class=headerlink title="1.0 移动端基础"></a>1.0 移动端基础</h3><h4 id=1-1-浏览器现状><a href=#1-1-浏览器现状 class=headerlink title="1.1 浏览器现状"></a>1.1 浏览器现状</h4><p>PC 端常见浏览器：360 浏览器、谷歌浏览器、火狐浏览器、QQ 浏览器、百度浏览器、搜狗浏览器、IE 浏览器。</p><p>移动端常见浏览器：UC 浏览器，QQ 浏览器，欧朋浏览器，百度手机浏览器，360 安全浏览器，谷歌浏览器，搜狗手机浏览器，猎豹浏览器，以及其他杂牌浏览器。</p><p>国内的 UC 和 QQ，百度等手机浏览器都是根据 Webkit 修改过来的内核，国内尚无自主研发的内核，就像国内的手机操作系统都是基于 Android 修改开发的一样。</p><p><strong>总结：兼容移动端主流浏览器，处理 Webkit 内核浏览器即可。</strong></p><h4 id=1-2-手机屏幕的现状><a href=#1-2-手机屏幕的现状 class=headerlink title="1.2 手机屏幕的现状"></a>1.2 手机屏幕的现状</h4><ul><li>移动端设备屏幕尺寸非常多，碎片化严重。</li><li>Android 设备有多种分辨率：480x800, 480x854, 540x960, 720x1280，1080x1920 等，还有传说中的 2K，4k 屏。</li><li>近年来 iPhone 的碎片化也加剧了，其设备的主要分辨率有：640x960, 640x1136, 750x1334, 1242x2208 等。</li><li>作为开发者无需关注这些分辨率，因为我们常用的尺寸单位是 px 。</li></ul><h4 id=1-3-常见移动端屏幕尺寸><a href=#1-3-常见移动端屏幕尺寸 class=headerlink title="1.3 常见移动端屏幕尺寸"></a>1.3 常见移动端屏幕尺寸</h4><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/1-1595375347276.png alt=img></p><p>查询地址: <a href="http://screensiz.es/" target=_blank rel=noopener>http://screensiz.es/</a></p><h4 id=1-4-移动端调试方法><a href=#1-4-移动端调试方法 class=headerlink title="1.4 移动端调试方法"></a>1.4 移动端调试方法</h4><ul><li>Chrome DevTools（谷歌浏览器）的模拟手机调试</li><li>搭建本地 web 服务器，手机和服务器一个局域网内，通过手机访问服务器</li><li>使用外网服务器，直接 IP 或域名访问</li></ul><h3 id=2-0-视口><a href=#2-0-视口 class=headerlink title="2.0 视口"></a>2.0 视口</h3><p>视口（viewport）就是浏览器显示页面内容的屏幕区域。 视口可以分为布局视口、视觉视口和理想视口</p><h4 id=2-1-布局视口-layout-viewport><a href=#2-1-布局视口-layout-viewport class=headerlink title="2.1 布局视口 layout viewport"></a>2.1 布局视口 layout viewport</h4><p>一般移动设备的浏览器都默认设置了一个布局视口，用于解决早期的 PC 端页面在手机上显示的问题。</p><p>iOS, Android 基本都将这个视口分辨率设置为 980px，所以 PC 上的网页大多都能在手机上呈现，只不过元素看上去很小，一般默认可以通过手动缩放网页。</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/2.png alt=img></p><p>####2.2 视觉视口 visual viewport</p><p>字面意思，它是用户正在看到的网站的区域。注意：是网站的区域。</p><p>我们可以通过缩放去操作视觉视口，但不会影响布局视口，布局视口仍保持原来的宽度。</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/3-1595374103218.png alt=img></p><h4 id=2-3-理想视口-ideal-viewport><a href=#2-3-理想视口-ideal-viewport class=headerlink title="2.3 理想视口 ideal viewport"></a>2.3 理想视口 ideal viewport</h4><p>为了使网站在移动端有最理想的浏览和阅读宽度而设定</p><p>理想视口，对设备来讲，是最理想的视口尺寸</p><p>需要手动添写 meta 视口标签通知浏览器操作</p><p>meta 视口标签的主要目的：布局视口的宽度应该与理想视口的宽度一致，简单理解就是设备有多宽，我们布局的视口就多宽</p><p><strong>总结：我们开发最终会用理想视口，而理想视口就是将布局视口的宽度修改为视觉视口</strong></p><h4 id=2-4meta-标签><a href=#2-4meta-标签 class=headerlink title="2.4meta 标签"></a>2.4meta 标签</h4><pre class=language-html><code class=language-html><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span>
+  <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span>
+  <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width<span class="token punctuation">=</span>device-width, initial-scale<span class="token punctuation">=</span>1, maximum-scale<span class="token punctuation">=</span>1, user-scalable<span class="token punctuation">=</span>no<span class="token punctuation">"</span></span>
+<span class="token punctuation">/></span></span></code></pre><table><thead><tr><th>属性</th><th>解释说明</th></tr></thead><tbody><tr><td>width</td><td>宽度是 viewport 宽度,可以设置 device-widht 特殊值</td></tr><tr><td>initial-scale</td><td>初始缩放比,大于 0 的数字</td></tr><tr><td>maximun-scale</td><td>初始缩放比,大于 0 的数字</td></tr><tr><td>minimum-scale</td><td>初始缩放比,大于 0 的数字</td></tr><tr><td>user-scalable</td><td>用户是否可以缩放,yes/no (1/0)</td></tr></tbody></table><p>最标准的 viewport 设置</p><ul><li>视口宽度和设备保持一致</li><li>视口的默认缩放比例 1.0</li><li>不允许用户自行缩放</li><li>最大允许的缩放比例 1.0</li><li>最小允许的缩放比例 1.0</li></ul><h3 id=3-0-二倍图><a href=#3-0-二倍图 class=headerlink title="3.0 二倍图"></a>3.0 二倍图</h3><p>####3.1 物理像素&amp;物理像素比</p><p>物理像素点指的是屏幕显示的最小颗粒，是物理真实存在的。这是厂商在出厂时就设置好了,比如苹果 6 是 750* 1334</p><p>我们开发时候的 1px 不是一定等于 1 个物理像素的</p><p>一个 px 的能显示的物理像素点的个数，称为物理像素比或屏幕像素比</p><p>如果把 1 张 100*100 的图片放到手机里面会按照物理像素比给我们缩放</p><p>lRetina（视网膜屏幕）是一种显示技术，可以将把更多的物理像素点压缩至一块屏幕里，从而达到更高的分辨率，并提高屏幕显示的细腻程度。</p><p>对于一张 50px * 50px 的图片,在手机或 Retina 屏中打开，按照刚才的物理像素比会放大倍数，这样会造成图片模糊</p><p>在标准的 viewport 设置中，使用倍图来提高图片质量，解决在高清设备中的模糊问题</p><p>通常使用二倍图， 因为 iPhone 6 的影响背景图片 注意缩放问题</p><h4 id=3-2-背景缩放-background-size><a href=#3-2-背景缩放-background-size class=headerlink title="3.2 背景缩放 background-size"></a>3.2 背景缩放 background-size</h4><p>background-size 属性规定背景图像的尺寸</p><pre><code>background-size: 背景图片宽度 背景图片高度;</code></pre><p>单位： 长度|百分比|cover|contain;</p><p>cover 把背景图像扩展至足够大，以使背景图像完全覆盖背景区域。</p><p>contain 把图像图像扩展至最大尺寸，以使其宽度和高度完全适应内容区域</p><h3 id=4-0-移动开发选择和技术解决方案><a href=#4-0-移动开发选择和技术解决方案 class=headerlink title="4.0 移动开发选择和技术解决方案"></a>4.0 移动开发选择和技术解决方案</h3><p>####4.1 移动端主流方案</p><p>1.单独制作移动端页面（主流）</p><p>通常情况下，网址域名前面加 m(mobile)<br>可以打开移动端。通过判断设备，如果是移动设备打开，则跳到移动端页面。</p><p>也就是说，PC 端和移动端为两套网站，pc 端是 pc 断的样式，移动端在写一套，专门针对移动端适配的一套网站</p><p>京东 pc 端：</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/5.png alt=img></p><p>京东移动端：</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/6-1595374092186.jpg alt=img></p><p>2.响应式页面兼容移动端（其次）</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/7-1595374089043.jpg alt=img></p><p>响应式网站：即 pc 和移动端共用一套网站，只不过在不同屏幕下，样式会自动适配</p><h4 id=4-2-移动端技术解决方案><a href=#4-2-移动端技术解决方案 class=headerlink title="4.2 移动端技术解决方案"></a>4.2 移动端技术解决方案</h4><p>1.移动端浏览器兼容问题</p><p>移动端浏览器基本以 webkit 内核为主，因此我们就考虑 webkit 兼容性问题。</p><p>我们可以放心使用 H5 标签和 CSS3 样式。</p><p>同时我们浏览器的私有前缀我们只需要考虑添加 webkit 即可</p><p>2.移动端公共样式</p><p>移动端 CSS 初始化推荐使用 normalize.css/</p><p>Normalize.css：保护了有价值的默认值</p><p>Normalize.css：修复了浏览器的 bug</p><p>Normalize.css：是模块化的</p><p>Normalize.css：拥有详细的文档</p><p>官网地址： <a href="http://necolas.github.io/normalize.css/" target=_blank rel=noopener>http://necolas.github.io/normalize.css/</a></p><h4 id=4-3-移动端大量使用-CSS3-盒子模型-box-sizin><a href=#4-3-移动端大量使用-CSS3-盒子模型-box-sizin class=headerlink title="4.3 移动端大量使用 CSS3 盒子模型 box-sizin"></a>4.3 移动端大量使用 CSS3 盒子模型 box-sizin</h4><p>传统模式宽度计算：盒子的宽度 = CSS 中设置的 width + border + padding</p><p>CSS3 盒子模型： 盒子的宽度= CSS 中设置的宽度 width 里面包含了 border 和 padding</p><p>也就是说，我们的 CSS3 中的盒子模型， padding 和 border 不会撑大盒子了</p><pre><code>/*CSS3盒子模型*/
+box-sizing: border-box;
+/*传统盒子模型*/
+box-sizing: content-box;</code></pre><p>移动端可以全部 CSS3 盒子模型</p><p>PC 端如果完全需要兼容，我们就用传统模式，如果不考虑兼容性，我们就选择 CSS3 盒子模型</p><h4 id=4-4-移动端特殊样式><a href=#4-4-移动端特殊样式 class=headerlink title="4.4 移动端特殊样式"></a>4.4 移动端特殊样式</h4><pre><code>/*CSS3盒子模型*/
+box-sizing: border-box;
+-webkit-box-sizing: border-box;
+/*点击高亮我们需要清除清除  设置为transparent 完成透明*/
+-webkit-tap-highlight-color: transparent;
+/*在移动端浏览器默认的外观在iOS上加上这个属性才能给按钮和输入框自定义样式*/
+-webkit-appearance: none;
+/*禁用长按页面时的弹出菜单*/
+img,a { -webkit-touch-callout: none; }</code></pre><h3 id=5-0-移动端常见布局><a href=#5-0-移动端常见布局 class=headerlink title="5.0 移动端常见布局"></a>5.0 移动端常见布局</h3><p>移动端单独制作</p><ul><li>流式布局（百分比布局）</li><li>flex 弹性布局（强烈推荐）</li><li>less+rem+媒体查询布局</li><li>混合布局</li></ul><p>响应式</p><ul><li>媒体查询</li><li>bootstarp</li></ul><p>流式布局：</p><p>流式布局，就是百分比布局，也称非固定像素布局。</p><p>通过盒子的宽度设置成百分比来根据屏幕的宽度来进行伸缩，不受固定像素的限制，内容向两侧填充。</p><p>流式布局方式是移动 web 开发使用的比较常见的布局方式。</p><h1 id=移动-web-开发——flex-布局><a href=#移动-web-开发——flex-布局 class=headerlink title="移动 web 开发——flex 布局"></a>移动 web 开发——flex 布局</h1><h2 id=1-0-传统布局和-flex-布局对比><a href=#1-0-传统布局和-flex-布局对比 class=headerlink title="1.0 传统布局和 flex 布局对比"></a>1.0 传统布局和 flex 布局对比</h2><h3 id=1-1-传统布局><a href=#1-1-传统布局 class=headerlink title="1.1 传统布局"></a>1.1 传统布局</h3><ul><li>兼容性好</li><li>布局繁琐</li><li>局限性，不能再移动端很好的布局</li></ul><h3 id=1-2-flex-布局><a href=#1-2-flex-布局 class=headerlink title="1.2 flex 布局"></a>1.2 flex 布局</h3><ul><li>操作方便，布局极其简单，移动端使用比较广泛</li><li>pc 端浏览器支持情况比较差</li><li>IE11 或更低版本不支持 flex 或仅支持部分</li></ul><h3 id=1-3-建议><a href=#1-3-建议 class=headerlink title="1.3 建议"></a>1.3 建议</h3><ul><li>如果是 pc 端页面布局，还是采用传统方式</li><li>如果是移动端或者是不考虑兼容的 pc 则采用 flex</li></ul><h2 id=2-0-flex-布局原理><a href=#2-0-flex-布局原理 class=headerlink title="2.0 flex 布局原理"></a>2.0 flex 布局原理</h2><ul><li>flex 是 flexible Box 的缩写，意为”弹性布局”，用来为盒状模型提供最大的灵活性，任何一个容器都可以指定为 flex 布局。</li><li>当我们为父盒子设为 flex 布局以后，子元素的 float、clear 和 vertical-align 属性将失效。</li><li>flex 布局又叫伸缩布局 、弹性布局 、伸缩盒布局 、弹性盒布局</li><li>采用 Flex 布局的元素，称为 Flex 容器（flex</li></ul><p>container），简称”容器”。它的所有子元素自动成为容器成员，称为 Flex 项目（flex<br>item），简称”项目”。</p><p><strong>总结</strong>：就是通过给父盒子添加 flex 属性，来控制子盒子的位置和排列方式</p><h2 id=3-0-父项常见属性><a href=#3-0-父项常见属性 class=headerlink title="3.0 父项常见属性"></a>3.0 父项常见属性</h2><ul><li>flex-direction：设置主轴的方向</li><li>justify-content：设置主轴上的子元素排列方式</li><li>flex-wrap：设置子元素是否换行</li><li>align-content：设置侧轴上的子元素的排列方式（多行）</li><li>align-items：设置侧轴上的子元素排列方式（单行）</li><li>flex-flow：复合属性，相当于同时设置了 flex-direction 和 flex-wrap</li></ul><h3 id=3-1-flex-direction-设置主轴的方向><a href=#3-1-flex-direction-设置主轴的方向 class=headerlink title="3.1 flex-direction 设置主轴的方向"></a>3.1 flex-direction 设置主轴的方向</h3><ul><li><p>在 flex 布局中，是分为主轴和侧轴两个方向，同样的叫法有 ： 行和列、x 轴和 y 轴</p></li><li><p>默认主轴方向就是 x 轴方向，水平向右</p></li><li><p>默认侧轴方向就是 y 轴方向，水平向下</p></li><li><p>注意： 主轴和侧轴是会变化的，就看 flex-direction 设置谁为主轴，剩下的就是侧轴。而我们的子元素是跟着主轴来排列的</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/2-1595374079456.jpg alt=img></p></li></ul><h3 id=3-2-justify-content-设置主轴上的子元素排列方式><a href=#3-2-justify-content-设置主轴上的子元素排列方式 class=headerlink title="3.2 justify-content 设置主轴上的子元素排列方式"></a>3.2 justify-content 设置主轴上的子元素排列方式</h3><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/3.jpg alt=img></p><h3 id=3-3-flex-wrap-设置是否换行><a href=#3-3-flex-wrap-设置是否换行 class=headerlink title="3.3 flex-wrap 设置是否换行"></a>3.3 flex-wrap 设置是否换行</h3><ul><li>默认情况下，项目都排在一条线（又称”轴线”）上。flex-wrap 属性定义，flex 布局中默认是不换行的。</li><li>nowrap 不换行</li><li>wrap 换行</li></ul><h3 id=3-4-align-items-设置侧轴上的子元素排列方式（单行-）><a href=#3-4-align-items-设置侧轴上的子元素排列方式（单行-） class=headerlink title="3.4 align-items 设置侧轴上的子元素排列方式（单行 ）"></a>3.4 align-items 设置侧轴上的子元素排列方式（单行 ）</h3><ul><li>该属性是控制子项在侧轴（默认是 y 轴）上的排列方式 在子项为单项（单行）的时候使用</li><li>flex-start 从头部开始</li><li>flex-end 从尾部开始</li><li>center 居中显示</li><li>stretch 拉伸</li></ul><h3 id=3-5-align-content-设置侧轴上的子元素的排列方式（多行）><a href=#3-5-align-content-设置侧轴上的子元素的排列方式（多行） class=headerlink title="3.5 align-content 设置侧轴上的子元素的排列方式（多行）"></a>3.5 align-content 设置侧轴上的子元素的排列方式（多行）</h3><p>设置子项在侧轴上的排列方式 并且只能用于子项出现 换行 的情况（多行），在单行下是没有效果的。</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/4.jpg alt=img></p><h3 id=3-6-align-content-和-align-items-区别><a href=#3-6-align-content-和-align-items-区别 class=headerlink title="3.6 align-content 和 align-items 区别"></a>3.6 align-content 和 align-items 区别</h3><ul><li>align-items 适用于单行情况下， 只有上对齐、下对齐、居中和 拉伸</li><li>align-content 适应于换行（多行）的情况下（单行情况下无效）， 可以设置 上对齐、下对齐、居中、拉伸以及平均分配剩余空间等属性值。</li><li>总结就是单行找 align-items 多行找 align-content</li></ul><h3 id=3-7-flex-flow-属性是-flex-direction-和-flex-wrap-属性的复合属性><a href=#3-7-flex-flow-属性是-flex-direction-和-flex-wrap-属性的复合属性 class=headerlink title="3.7 flex-flow 属性是 flex-direction 和 flex-wrap 属性的复合属性"></a>3.7 flex-flow 属性是 flex-direction 和 flex-wrap 属性的复合属性</h3><pre><code>flex-flow:row wrap;</code></pre><h2 id=4-0-flex-布局子项常见属性><a href=#4-0-flex-布局子项常见属性 class=headerlink title="4.0 flex 布局子项常见属性"></a>4.0 flex 布局子项常见属性</h2><ul><li>flex 子项目占的份数</li><li>align-self 控制子项自己在侧轴的排列方式</li><li>order 属性定义子项的排列顺序（前后顺序）</li></ul><h3 id=4-1-flex-属性><a href=#4-1-flex-属性 class=headerlink title="4.1 flex 属性"></a>4.1 flex 属性</h3><p>flex 属性定义子项目分配剩余空间，用 flex 来表示占多少份数。</p><pre><code>.item {
+    flex: &lt;number&gt;; /* 默认值 0 */
+}</code></pre><h3 id=4-2-align-self-控制子项自己在侧轴上的排列方式><a href=#4-2-align-self-控制子项自己在侧轴上的排列方式 class=headerlink title="4.2 align-self 控制子项自己在侧轴上的排列方式"></a>4.2 align-self 控制子项自己在侧轴上的排列方式</h3><p>align-self 属性允许单个项目有与其他项目不一样的对齐方式，可覆盖 align-items 属性。</p><p>默认值为 auto，表示继承父元素的 align-items 属性，如果没有父元素，则等同于 stretch。</p><pre><code>span:nth-child(2) {
+      /* 设置自己在侧轴上的排列方式 */
+      align-self: flex-end;
+}</code></pre><h3 id=4-3-order-属性定义项目的排列顺序><a href=#4-3-order-属性定义项目的排列顺序 class=headerlink title="4.3 order 属性定义项目的排列顺序"></a>4.3 order 属性定义项目的排列顺序</h3><p>数值越小，排列越靠前，默认为 0。</p><p>注意：和 z-index 不一样。</p><pre><code>.item {
+    order: &lt;number&gt;;
+}</code></pre><h2 id=5-0-携程网首页案例制作><a href=#5-0-携程网首页案例制作 class=headerlink title="5.0 携程网首页案例制作"></a>5.0 携程网首页案例制作</h2><p>携程网链接：<a href="http://m.ctrip.com/" target=_blank rel=noopener>http://m.ctrip.com</a></p><p>1.技术选型</p><p>方案：我们采取单独制作移动页面方案</p><p>技术：布局采取 flex 布局</p><p>2.搭建相关文件夹</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/5-1595374068987.jpg alt=img></p><p>3.设置视口标签以及引入初始化样式</p><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no,initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/normalize.css&quot;&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/index.css&quot;&gt;</code></pre><p>4.常用初始化样式</p><pre><code>body {
+  max-width: 540px;
+  min-width: 320px;
+  margin: 0 auto;
+  font: normal 14px/1.5 Tahoma,&quot;Lucida Grande&quot;,Verdana,&quot;Microsoft Yahei&quot;,STXihei,hei;
+  color: #000;
+  background: #f2f2f2;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
+}</code></pre><p>5.模块名字划分</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/6-1595374065019.jpg alt=img></p><h1 id=移动-web-开发之-rem-布局><a href=#移动-web-开发之-rem-布局 class=headerlink title="移动 web 开发之 rem 布局"></a>移动 web 开发之 rem 布局</h1><h3 id=rem-基础><a href=#rem-基础 class=headerlink title="rem 基础"></a>rem 基础</h3><h4 id=rem-单位><a href=#rem-单位 class=headerlink title="rem 单位"></a>rem 单位</h4><p>rem (root em)是一个相对单位，类似于 em，em 是父元素字体大小。</p><p>不同的是 rem 的基准是相对于 html 元素的字体大小。</p><p>比如，根元素（html）设置 font-size=12px; 非根元素设置 width:2rem; 则换成 px 表示就是 24px。</p><pre><code>/* 根html 为 12px */
+html {
+   font-size: 12px;
+}
+/* 此时 div 的字体大小就是 24px */
+div {
+    font-size: 2rem;
+}</code></pre><p>rem 的优势：父元素文字大小可能不一致， 但是整个页面只有一个 html，可以很好来控制整个页面的元素大小。</p><h3 id=媒体查询><a href=#媒体查询 class=headerlink title=媒体查询></a>媒体查询</h3><h4 id=什么是媒体查询><a href=#什么是媒体查询 class=headerlink title=什么是媒体查询></a>什么是媒体查询</h4><p>媒体查询（Media Query）是 CSS3 新语法。</p><ul><li>使用 @media 查询，可以针对不同的媒体类型定义不同的样式</li><li>@media 可以针对不同的屏幕尺寸设置不同的样式</li><li>当你重置浏览器大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面</li><li>目前针对很多苹果手机、Android 手机，平板等设备都用得到多媒体查询</li></ul><h4 id=媒体查询语法规范><a href=#媒体查询语法规范 class=headerlink title=媒体查询语法规范></a>媒体查询语法规范</h4><ul><li>用 @media 开头 注意@符号</li><li>mediatype 媒体类型</li><li>关键字 and not only</li><li>media feature 媒体特性必须有小括号包含</li></ul><pre><code>@media mediatype and|not|only (media feature) {
+    CSS-Code;
+}</code></pre><ol><li>mediatype 查询类型</li></ol><p>将不同的终端设备划分成不同的类型，称为媒体类型</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/1.jpg alt=img></p><ol><li>关键字</li></ol><p>关键字将媒体类型或多个媒体特性连接到一起做为媒体查询的条件。</p><ul><li>and：可以将多个媒体特性连接到一起，相当于“且”的意思。</li><li>not：排除某个媒体类型，相当于“非”的意思，可以省略。</li><li>only：指定某个特定的媒体类型，可以省略。</li></ul><ol><li><p>媒体特性</p><p>每种媒体类型都具体各自不同的特性，根据不同媒体类型的媒体特性设置不同的展示风格。我们暂且了解三个。</p><p>注意他们要加小括号包含</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/2-1595374058312.jpg alt=img></p></li><li><p>媒体查询书写规则</p><p>注意： 为了防止混乱，媒体查询我们要按照从小到大或者从大到小的顺序来写,但是我们最喜欢的还是从小到大来写，这样代码更简洁</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/3.png alt=img></p></li></ol><h3 id=less-基础><a href=#less-基础 class=headerlink title="less 基础"></a>less 基础</h3><h4 id=维护-css-弊端><a href=#维护-css-弊端 class=headerlink title="维护 css 弊端"></a>维护 css 弊端</h4><p>CSS 是一门非程序式语言，没有变量、函数、SCOPE（作用域）等概念。</p><ul><li>CSS 需要书写大量看似没有逻辑的代码，CSS 冗余度是比较高的。</li><li>不方便维护及扩展，不利于复用。</li><li>CSS 没有很好的计算能力</li><li>非前端开发工程师来讲，往往会因为缺少 CSS 编写经验而很难写出组织良好且易于维护的 CSS 代码项目。</li></ul><h4 id=Less-介绍><a href=#Less-介绍 class=headerlink title="Less 介绍"></a>Less 介绍</h4><p>Less（LeanerStyle Sheets 的缩写）是一门 CSS 扩展语言，也成为 CSS 预处理器。</p><p>做为 CSS 的一种形式的扩展，它并没有减少 CSS 的功能，而是在现有的 CSS 语法上，为 CSS 加入程序式语言的特性。</p><p>它在 CSS 的语法基础之上，引入了变量，Mixin（混入），运算以及函数等功能，大大简化了 CSS 的编写，并且降低了 CSS 的维护成本，就像它的名称所说的那样，Less 可以让我们用更少的代码做更多的事情。</p><p>Less 中文网址：<a href="http://lesscss.cn/" target=_blank rel=noopener>http://</a><a href="http://lesscss.cn/" target=_blank rel=noopener>less</a><a href="http://lesscss.cn/" target=_blank rel=noopener>css.cn/</a></p><p>常见的 CSS 预处理器：Sass、Less、Stylus</p><p>一句话：Less 是一门 CSS 预处理语言，它扩展了 CSS 的动态特性。</p><p>Less 安装</p><p>① 安装 nodejs，可选择版本(8.0)，网址：<a href="http://nodejs.cn/download/" target=_blank rel=noopener>http://nodejs.cn/download/</a></p><p>② 检查是否安装成功，使用 cmd 命令（win10 是 window+r 打开运行输入 cmd） —输入“node –v”查看版本即可</p><p>③ 基于 nodejs 在线安装 Less，使用 cmd 命令“npm install -g less”即可</p><p>④ 检查是否安装成功，使用 cmd 命令“ lessc -v ”查看版本即可</p><p>Less 使用之变量</p><p>变量是指没有固定的值，可以改变的。因为我们 CSS 中的一些颜色和数值等经常使用。</p><pre><code>@变量名:值;</code></pre><ul><li>必须有@为前缀</li><li>不能包含特殊字符</li><li>不能以数字开头</li><li>大小写敏感</li></ul><pre><code>@color: pink;</code></pre><p>Less 编译 vocode Less 插件</p><p>Easy LESS 插件用来把 less 文件编译为 css 文件</p><p>安装完毕插件，重新加载下 vscode。</p><p>只要保存一下 Less 文件，会自动生成 CSS 文件。</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/4.png alt=img></p><p>Less 嵌套</p><pre><code>// 将css改为less
+#header .logo {
+  width: 300px;
+}
+
+#header {
+    .logo {
+       width: 300px;
+    }
+}</code></pre><p>如果遇见 （交集|伪类|伪元素选择器） ，利用&amp;进行连接</p><pre><code>a:hover{
+    color:red;
+}
+a{
+  &amp;:hover{
+      color:red;
+  }
+}</code></pre><p>Less 运算</p><p>任何数字、颜色或者变量都可以参与运算。就是 Less 提供了加（+）、减（-）、乘（*）、除（/）算术运算。</p><pre><code>/*Less 里面写*/
+@witdh: 10px + 5;
+div {
+    border: @witdh solid red;
+}
+/*生成的css*/
+div {
+  border: 15px solid red;
+}
+/*Less 甚至还可以这样 */
+width: (@width + 5) * 2;</code></pre><ul><li>乘号（*）和除号（/）的写法</li><li>运算符中间左右有个空格隔开 1px + 5</li><li>对于两个不同的单位的值之间的运算，运算结果的值取第一个值的单位</li><li>如果两个值之间只有一个值有单位，则运算结果就取该单位</li></ul><h3 id=rem-适配方案><a href=#rem-适配方案 class=headerlink title="rem 适配方案"></a>rem 适配方案</h3><p>1.让一些不能等比自适应的元素，达到当设备尺寸发生改变的时候，等比例适配当前设备。</p><p>2.使用媒体查询根据不同设备按比例设置 html 的字体大小，然后页面元素使用 rem 做尺寸单位，当 html 字体大小变化元素尺寸也会发生变化，从而达到等比缩放的适配。</p><p>技术方案：</p><p>1.less+rem+媒体查询</p><p>2.lflexible.js+rem</p><p>总结：</p><p>两种方案现在都存在。</p><p>方案 2 更简单，现阶段大家无需了解里面的 js 代码。</p><h4 id=rem-实际开发适配方案-1><a href=#rem-实际开发适配方案-1 class=headerlink title="rem 实际开发适配方案 1"></a>rem 实际开发适配方案 1</h4><p>① 假设设计稿是 750px</p><p>② 假设我们把整个屏幕划分为 15 等份（划分标准不一可以是 20 份也可以是 10 等份）</p><p>③ 每一份作为 html 字体大小，这里就是 50px</p><p>④ 那么在 320px 设备的时候，字体大小为 320/15 就是 21.33px</p><p>⑤ 用我们页面元素的大小除以不同的 html 字体大小会发现他们比例还是相同的</p><p>⑥ 比如我们以 750 为标准设计稿</p><p>⑦ 一个 100<em>100 像素的页面元素在 750 屏幕下， 就是 100/ 50 转换为 rem 是 2rem</em>2rem 比例是 1 比 1</p><p>⑧320 屏幕下， html 字体大小为 21.33 则 2rem= 42.66px 此时宽和高都是 42.66 但是宽和高的比例还是 1 比 1</p><p>⑨ 但是已经能实现不同屏幕下 页面元素盒子等比例缩放的效果</p><p>总结：</p><p>① 最后的公式：页面元素的 rem 值 = 页面元素值（px） / （屏幕宽度 / 划分的份数）</p><p>② 屏幕宽度/划分的份数就是 htmlfont-size 的大小</p><p>③ 或者：页面元素的 rem 值 = 页面元素值（px） / html font-size 字体大小</p><h3 id=苏宁首页><a href=#苏宁首页 class=headerlink title=苏宁首页></a>苏宁首页</h3><p>苏宁首页地址 ：<a href=https://m.suning.com target=_blank rel=noopener>苏宁首页</a></p><p>1、 技术选型</p><p>方案：我们采取单独制作移动页面方案</p><p>技术：布局采取 rem 适配布局（less + rem + 媒体查询）</p><p>设计图： 本设计图采用 750px 设计尺寸</p><p>2、搭建文件结构</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/5.jpg alt=img></p><p>3、设置视口标签以及引入初始化样式</p><pre><code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, user-scalable=no,         initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0&quot;&gt;
+
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/normalize.css&quot;&gt;</code></pre><p>4、设置公共 common.less 文件</p><ul><li>新建 common.less 设置好最常见的屏幕尺寸，利用媒体查询设置不同的 html 字体大小，因为除了首页其他页面也需要</li><li>我们关心的尺寸有 320px、360px、375px、384px、400px、414px、424px、480px、540px、720px、750px</li><li>划分的份数我们定为 15 等份</li><li>因为我们 pc 端也可以打开我们苏宁移动端首页，我们默认 html 字体大小为 50px，注意这句话写到最上面</li></ul><h3 id=rem-适配方案-2><a href=#rem-适配方案-2 class=headerlink title="rem 适配方案 2"></a>rem 适配方案 2</h3><p>手机淘宝团队出的简洁高效 移动端适配库</p><p>我们再也不需要在写不同屏幕的媒体查询，因为里面 js 做了处理</p><p>它的原理是把当前设备划分为 10 等份，但是不同设备下，比例还是一致的。</p><p>我们要做的，就是确定好我们当前设备的 html 文字大小就可以了</p><p>比如当前设计稿是 750px， 那么我们只需要把 html 文字大小设置为 75px(750px / 10) 就可以</p><p>里面页面元素 rem 值： 页面元素的 px 值 / 75</p><p>剩余的，让 flexible.js 来去算</p><p>github 地址：<a href="https://link.jianshu.com/?t=https://github.com/amfe/lib-flexible" target=_blank rel=noopener>https://github.com/amfe/lib-flexible</a></p><p>总结：</p><p>因为 flexible 是默认将屏幕分为 10 等分</p><p>但是当屏幕大于 750 的时候希望不要再去重置 html 字体了</p><p>所以要自己通过媒体查询设置一下</p><p>并且要把权重提到最高</p><p>VSCode px 转换 rem 插件 cssrem</p><p>因为 cssrem 中 css 自动转化为 rem 是参照默认插件的 16 转换的所以需要自己配置</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/6.jpg alt=img></p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/7.jpg alt=img></p><h1 id=移动端-WEB-开发之响应式布局><a href=#移动端-WEB-开发之响应式布局 class=headerlink title="移动端 WEB 开发之响应式布局"></a>移动端 WEB 开发之响应式布局</h1><h3 id=1-0-响应式开发原理><a href=#1-0-响应式开发原理 class=headerlink title="1.0 响应式开发原理"></a>1.0 响应式开发原理</h3><h4 id=1-1-响应式开发原理><a href=#1-1-响应式开发原理 class=headerlink title="1.1 响应式开发原理"></a>1.1 响应式开发原理</h4><p>就是使用媒体查询针对不同宽度的设备进行布局和样式的设置，从而适配不同设备的目的。</p><p>设备的划分情况：</p><ul><li>小于 768 的为超小屏幕（手机）</li><li>768~992 之间的为小屏设备（平板）</li><li>992~1200 的中等屏幕（桌面显示器）</li><li>大于 1200 的宽屏设备（大桌面显示器）</li></ul><h4 id=1-2-响应式布局容器><a href=#1-2-响应式布局容器 class=headerlink title="1.2 响应式布局容器"></a>1.2 响应式布局容器</h4><p>响应式需要一个父级做为布局容器，来配合子级元素来实现变化效果。</p><p>原理就是在不同屏幕下，通过媒体查询来改变这个布局容器的大小，再改变里面子元素的排列方式和大小，从而实现不同屏幕下，看到不同的页面布局和样式变化。</p><p>父容器版心的尺寸划分</p><ul><li>超小屏幕（手机，小于 768px）：设置宽度为 100%</li><li>小屏幕（平板，大于等于 768px）：设置宽度为 750px</li><li>中等屏幕（桌面显示器，大于等于 992px）：宽度设置为 970px</li><li>大屏幕（大桌面显示器，大于等于 1200px）：宽度设置为 1170px</li></ul><p>但是我们也可以根据实际情况自己定义划分</p><h3 id=2-0-bootstrap-的介绍><a href=#2-0-bootstrap-的介绍 class=headerlink title="2.0 bootstrap 的介绍"></a>2.0 bootstrap 的介绍</h3><h4 id=2-1Bootstrap-简介><a href=#2-1Bootstrap-简介 class=headerlink title="2.1Bootstrap 简介"></a>2.1Bootstrap 简介</h4><p>Bootstrap 来自 Twitter（推特），是目前最受欢迎的前端框架。Bootstrap 是基于 HTML、CSS 和 JAVASCRIPT 的，它简洁灵活，使得 Web 开发更加快捷。</p><p><a href="lhttp://www.bootcss.com/">中文网</a> <a href="lhttp://getbootstrap.com/">官网</a> <a href="http://bootstrap.css88.com/" target=_blank rel=noopener>推荐网站</a></p><p>框架：顾名思义就是一套架构，它有一套比较完整的网页功能解决方案，而且控制权在框架本身，有预制样式库、组件和插件。使用者要按照框架所规定的某种规范进行开发。</p><h4 id=2-2-bootstrap-优点><a href=#2-2-bootstrap-优点 class=headerlink title="2.2 bootstrap 优点"></a>2.2 bootstrap 优点</h4><ul><li>标准化的 html+css 编码规范</li><li>提供了一套简洁、直观、强悍的组件</li><li>有自己的生态圈，不断的更新迭代</li><li>让开发更简单，提高了开发的效率</li></ul><h4 id=2-3-版本简介><a href=#2-3-版本简介 class=headerlink title="2.3 版本简介"></a>2.3 版本简介</h4><p>2.x.x：停止维护,兼容性好,代码不够简洁，功能不够完善。</p><p>3.x.x：目前使用最多,稳定,但是放弃了 IE6-IE7。对 IE8 支持但是界面效果不好,偏向用于开发响应式布局、移动设备优先的 WEB 项目。</p><p>4.x.x：最新版，目前还不是很流行</p><h4 id=2-4bootstrap-基本使用><a href=#2-4bootstrap-基本使用 class=headerlink title="2.4bootstrap 基本使用"></a>2.4bootstrap 基本使用</h4><p>在现阶段我们还没有接触 JS 相关课程，所以我们只考虑使用它的样式库。</p><p>Bootstrap 使用四步曲：</p><ol><li><p>创建文件夹结构</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/1.png alt=img></p></li><li><p>创建 html 骨架结构</p><pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;zh-CN&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+    &lt;!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ --&gt;
+    &lt;title&gt;Bootstrap 101 Template&lt;/title&gt;
+
+    &lt;!-- Bootstrap --&gt;
+    &lt;link href=&quot;css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+
+    &lt;!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --&gt;
+    &lt;!-- WARNING: Respond.js doesn&#39;t work if you view the page via file:// --&gt;
+    &lt;!--[if lt IE 9]&gt;
+      &lt;script src=&quot;//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js&quot;&gt;&lt;/script&gt;
+      &lt;script src=&quot;//cdn.bootcss.com/respond.js/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt;
+    &lt;![endif]--&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;你好，世界！&lt;/h1&gt;
+
+    &lt;!-- jQuery (necessary for Bootstrap&#39;s JavaScript plugins) --&gt;
+    &lt;script src=&quot;//cdn.bootcss.com/jquery/1.11.3/jquery.min.js&quot;&gt;&lt;/script&gt;
+    &lt;!-- Include all compiled plugins (below), or include individual files as needed --&gt;
+    &lt;script src=&quot;js/bootstrap.min.js&quot;&gt;&lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre></li><li><p>引入相关样式文件</p><pre><code>&lt;!-- Bootstrap 核心样式--&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;bootstrap/css/bootstrap.min.css&quot;&gt;</code></pre></li><li><p>书写内容</p><p>直接拿 Bootstrap 预先定义好的样式来使用</p><p>修改 Bootstrap 原来的样式，注意权重问题</p><p>学好 Bootstrap 的关键在于知道它定义了哪些样式，以及这些样式能实现什么样的效果</p></li></ol><h4 id=2-5-bootstrap-布局容器><a href=#2-5-bootstrap-布局容器 class=headerlink title="2.5 bootstrap 布局容器"></a>2.5 bootstrap 布局容器</h4><p>Bootstrap 需要为页面内容和栅格系统包裹一个 .container 或者.container-fluid 容器，它提供了两个作此用处的类。</p><p>.container</p><ul><li>响应式布局的容器 固定宽度</li><li>大屏 ( &gt;=1200px) 宽度定为 1170px</li><li>中屏 ( &gt;=992px) 宽度定为 970px</li><li>小屏 ( &gt;=768px) 宽度定为 750px</li><li>超小屏 (100%)</li></ul><p>.container-fluid</p><ul><li>流式布局容器 百分百宽度</li><li>占据全部视口（viewport）的容器。</li></ul><h4 id=2-6-bootstrap-栅格系统><a href=#2-6-bootstrap-栅格系统 class=headerlink title="2.6 bootstrap 栅格系统"></a>2.6 bootstrap 栅格系统</h4><p>Bootstrap 提供了一套响应式、移动设备优先的流式栅格系统，随着屏幕或视口（viewport）尺寸的增加，系统会自动分为最多 12 列。</p><p>栅格系统用于通过一系列的行（row）与列（column）的组合来创建页面布局，你的内容就可以放入这些创建好的布局中。</p><ul><li>按照不同屏幕划分为 1~12 等份</li><li>行（row） 可以去除父容器作用 15px 的边距</li><li>xs-extra small：超小； sm-small：小； md-medium：中等； lg-large：大；</li><li>列（column）大于 12，多余的“列（column）”所在的元素将被作为一个整体另起一行排列</li><li>每一列默认有左右 15 像素的 padding</li><li>可以同时为一列指定多个设备的类名，以便划分不同份数 例如 class=”col-md-4 col-sm-6”</li></ul><p>栅格嵌套</p><p>栅格系统内置的栅格系统将内容再次嵌套。简单理解就是一个列内再分成若干份小列。我们可以通过添加一个新的 .row 元素和一系列 .col-sm-_ 元素到已经存在的 .col-sm-_<br>元素内。</p><pre><code>&lt;!-- 列嵌套 --&gt;
+ &lt;div class=&quot;col-sm-4&quot;&gt;
+    &lt;div class=&quot;row&quot;&gt;
+         &lt;div class=&quot;col-sm-6&quot;&gt;小列&lt;/div&gt;
+         &lt;div class=&quot;col-sm-6&quot;&gt;小列&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre><p>列偏移</p><p>使用 .col-md-offset-_ 类可以将列向右侧偏移。这些类实际是通过使用 _ 选择器为当前元素增加了左侧的边距（margin）。</p><pre><code>&lt;!-- 列偏移 --&gt;
+ &lt;div class=&quot;row&quot;&gt;
+     &lt;div class=&quot;col-lg-4&quot;&gt;1&lt;/div&gt;
+     &lt;div class=&quot;col-lg-4 col-lg-offset-4&quot;&gt;2&lt;/div&gt;
+ &lt;/div&gt;</code></pre><p>列排序</p><p>通过使用 .col-md-push-_ 和 .col-md-pull-_ 类就可以很容易的改变列（column）的顺序。</p><pre><code>&lt;!-- 列排序 --&gt;
+ &lt;div class=&quot;row&quot;&gt;
+     &lt;div class=&quot;col-lg-4 col-lg-push-8&quot;&gt;左侧&lt;/div&gt;
+     &lt;div class=&quot;col-lg-8 col-lg-pull-4&quot;&gt;右侧&lt;/div&gt;
+ &lt;/div&gt;</code></pre><p>响应式工具</p><p>为了加快对移动设备友好的页面开发工作，利用媒体查询功能，并使用这些工具类可以方便的针对不同设备展示或隐藏页面内容。</p><p><img src=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80/2.jpg alt=img></p></div><footer class=post-footer><div class=post-tags><a href="/tags/%E6%B5%81%E5%BC%8F%E5%B8%83%E5%B1%80/" rel=tag># 流式布局</a> <a href="/tags/flex%E5%B8%83%E5%B1%80/" rel=tag># flex布局</a> <a href="/tags/rem%E5%B8%83%E5%B1%80/" rel=tag># rem布局</a> <a href="/tags/%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80/" rel=tag># 响应式布局</a></div><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/%E6%94%B6%E9%9B%86%E7%9A%84api.html rel=next title=收集的api><i class="fa fa-chevron-left"></i> 收集的api</a></div><span class=post-nav-divider></span><div class="post-nav-prev post-nav-item"><a href=/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7.html rel=prev title=常用工具>常用工具 <i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class=post-spread><script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script></div></div></div><div class=comments id=comments></div></div><div class=sidebar-toggle><div class=sidebar-toggle-line-wrap><span class="sidebar-toggle-line sidebar-toggle-line-first"></span> <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span> <span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id=sidebar class=sidebar><div id=sidebar-dimmer></div><div class=sidebar-inner><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>文章目录</li><li class=sidebar-nav-overview data-target=site-overview-wrap>站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class=site-overview><div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image itemprop=image src=/images/avatar.png alt="hao ~"><p class=site-author-name itemprop=name>hao ~</p><p class="site-description motion-element" itemprop=description></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href=/archives/%7C%7C%20archive><a href=/archives><span class=site-state-item-count>29</span> <span class=site-state-item-name>日志</span></a></a></div><div class="site-state-item site-state-categories"><a href=/categories/index.html><span class=site-state-item-count>12</span> <span class=site-state-item-name>分类</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/index.html><span class=site-state-item-count>28</span> <span class=site-state-item-name>标签</span></a></div></nav><div class="feed-link motion-element"><a href=/rss2.xml rel=alternate><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"><span class=links-of-author-item><a href=https://github.com/huhao0208 target=_blank title=GitHub><i class="fa fa-fw fa-github"></i>GitHub</a></span> <span class=links-of-author-item><a href=mailto:845957223@qq.com target=_blank title=E-Mail><i class="fa fa-fw fa-envelope"></i>E-Mail</a></span></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class=post-toc><div class=post-toc-content><ol class=nav><li class="nav-item nav-level-1"><a class=nav-link href=#移动-web-开发流式布局><span class=nav-number>1.</span> <span class=nav-text>移动 web 开发流式布局</span></a><ol class=nav-child><li class="nav-item nav-level-3"><a class=nav-link href=#1-0-移动端基础><span class=nav-number>1.0.1.</span> <span class=nav-text>1.0 移动端基础</span></a><ol class=nav-child><li class="nav-item nav-level-4"><a class=nav-link href=#1-1-浏览器现状><span class=nav-number>1.0.1.1.</span> <span class=nav-text>1.1 浏览器现状</span></a></li><li class="nav-item nav-level-4"><a class=nav-link href=#1-2-手机屏幕的现状><span class=nav-number>1.0.1.2.</span> <span class=nav-text>1.2 手机屏幕的现状</span></a></li><li class="nav-item nav-level-4"><a class=nav-link href=#1-3-常见移动端屏幕尺寸><span class=nav-number>1.0.1.3.</span> <span class=nav-text>1.3 常见移动端屏幕尺寸</span></a></li><li class="nav-item nav-level-4"><a class=nav-link href=#1-4-移动端调试方法><span class=nav-number>1.0.1.4.</span> <span class=nav-text>1.4 移动端调试方法</span></a></li></ol></li><li class="nav-item nav-level-3"><a class=nav-link href=#2-0-视口><span class=nav-number>1.0.2.</span> <span class=nav-text>2.0 视口</span></a><ol class=nav-child><li class="nav-item nav-level-4"><a class=nav-link href=#2-1-布局视口-layout-viewport><span class=nav-number>1.0.2.1.</span> <span class=nav-text>2.1 布局视口 layout viewport</span></a></li><li class="nav-item nav-level-4"><a class=nav-link href=#2-3-理想视口-ideal-viewport><span class=nav-number>1.0.2.2.</span> <span class=nav-text>2.3 理想视口 ideal viewport</span></a></li><li class="nav-item nav-level-4"><a class=nav-link href=#2-4meta-标签><span class=nav-number>1.0.2.3.</span> <span class=nav-text>2.4meta 标签</span></a></li></ol></li><li class="nav-item nav-level-3"><a class=nav-link href=#3-0-二倍图><span class=nav-number>1.0.3.</span> <span class=nav-text>3.0 二倍图</span></a><ol class=nav-child><li class="nav-item nav-level-4"><a class=nav-link href=#3-2-背景缩放-background-size><span class=nav-number>1.0.3.1.</span> <span class=nav-text>3.2 背景缩放 background-size</span></a></li></ol></li><li class="nav-item nav-level-3"><a class=nav-link href=#4-0-移动开发选择和技术解决方案><span class=nav-number>1.0.4.</span> <span class=nav-text>4.0 移动开发选择和技术解决方案</span></a><ol class=nav-child><li class="nav-item nav-level-4"><a class=nav-link href=#4-2-移动端技术解决方案><span class=nav-number>1.0.4.1.</span> <span class=nav-text>4.2 移动端技术解决方案</span></a></li><li class="nav-item nav-level-4"><a class=nav-link href=#4-3-移动端大量使用-CSS3-盒子模型-box-sizin><span class=nav-number>1.0.4.2.</span> <span class=nav-text>4.3 移动端大量使用 CSS3 盒子模型 box-sizin</span></a></li><li class="nav-item nav-level-4"><a class=nav-link href=#4-4-移动端特殊样式><span class=nav-number>1.0.4.3.</span> <span class=nav-text>4.4 移动端特殊样式</span></a></li></ol></li><li class="nav-item nav-level-3"><a class=nav-link href=#5-0-移动端常见布局><span class=nav-number>1.0.5.</span> <span class=nav-text>5.0 移动端常见布局</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class=nav-link href=#移动-web-开发——flex-布局><span class=nav-number>2.</span> <span class=nav-text>移动 web 开发——flex 布局</span></a><ol class=nav-child><li class="nav-item nav-level-2"><a class=nav-link href=#1-0-传统布局和-flex-布局对比><span class=nav-number>2.1.</span> <span class=nav-text>1.0 传统布局和 flex 布局对比</span></a><ol class=nav-child><li class="nav-item nav-level-3"><a class=nav-link href=#1-1-传统布局><span class=nav-number>2.1.1.</span> <span class=nav-text>1.1 传统布局</span></a></li><li class="nav-item nav-level-3"><a class=nav-link href=#1-2-flex-布局><span class=nav-number>2.1.2.</span> <span class=nav-text>1.2 flex 布局</span></a></li><li class="nav-item nav-level-3"><a class=nav-link href=#1-3-建议><span class=nav-number>2.1.3.</span> <span class=nav-text>1.3 建议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class=nav-link href=#2-0-flex-布局原理><span class=nav-number>2.2.</span> <span class=nav-text>2.0 flex 布局原理</span></a></li><li class="nav-item nav-level-2"><a class=nav-link href=#3-0-父项常见属性><span class=nav-number>2.3.</span> <span class=nav-text>3.0 父项常见属性</span></a><ol class=nav-child><li class="nav-item nav-level-3"><a class=nav-link href=#3-1-flex-direction-设置主轴的方向><span class=nav-number>2.3.1.</span> <span class=nav-text>3.1 flex-direction 设置主轴的方向</span></a></li><li class="nav-item nav-level-3"><a class=nav-link href=#3-2-justify-content-设置主轴上的子元素排列方式><span class=nav-number>2.3.2.</span> <span class=nav-text>3.2 justify-content 设置主轴上的子元素排列方式</span></a></li><li class="nav-item nav-level-3"><a class=nav-link href=#3-3-flex-wrap-设置是否换行><span class=nav-number>2.3.3.</span> <span class=nav-text>3.3 flex-wrap 设置是否换行</span></a></li><li class="nav-item nav-level-3"><a class=nav-link href=#3-4-align-items-设置侧轴上的子元素排列方式（单行-）><span class=nav-number>2.3.4.</span> <span class=nav-text>3.4 align-items 设置侧轴上的子元素排列方式（单行 ）</span></a></li><li class="nav-item nav-level-3"><a class=nav-link href=#3-5-align-content-设置侧轴上的子元素的排列方式（多行）><span class=nav-number>2.3.5.</span> <span class=nav-text>3.5 align-content 设置侧轴上的子元素的排列方式（多行）</span></a></li><li class="nav-item nav-level-3"><a class=nav-link href=#3-6-align-content-和-align-items-区别><span class=nav-number>2.3.6.</span> <span class=nav-text>3.6 align-content 和 align-items 区别</span></a></li><li class="nav-item nav-level-3"><a class=nav-link href=#3-7-flex-flow-属性是-flex-direction-和-flex-wrap-属性的复合属性><span class=nav-number>2.3.7.</span> <span class=nav-text>3.7 flex-flow 属性是 flex-direction 和 flex-wrap 属性的复合属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class=nav-link href=#4-0-flex-布局子项常见属性><span class=nav-number>2.4.</span> <span class=nav-text>4.0 flex 布局子项常见属性</span></a><ol class=nav-child><li class="nav-item nav-level-3"><a class=nav-link href=#4-1-flex-属性><span class=nav-number>2.4.1.</span> <span class=nav-text>4.1 flex 属性</span></a></li><li class="nav-item nav-level-3"><a class=nav-link href=#4-2-align-self-控制子项自己在侧轴上的排列方式><span class=nav-number>2.4.2.</span> <span class=nav-text>4.2 align-self 控制子项自己在侧轴上的排列方式</span></a></li><li class="nav-item nav-level-3"><a class=nav-link href=#4-3-order-属性定义项目的排列顺序><span class=nav-number>2.4.3.</span> <span class=nav-text>4.3 order 属性定义项目的排列顺序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class=nav-link href=#5-0-携程网首页案例制作><span class=nav-number>2.5.</span> <span class=nav-text>5.0 携程网首页案例制作</span></a></li></ol></li><li class="nav-item nav-level-1"><a class=nav-link href=#移动-web-开发之-rem-布局><span class=nav-number>3.</span> <span class=nav-text>移动 web 开发之 rem 布局</span></a><ol class=nav-child><li class="nav-item nav-level-3"><a class=nav-link href=#rem-基础><span class=nav-number>3.0.1.</span> <span class=nav-text>rem 基础</span></a><ol class=nav-child><li class="nav-item nav-level-4"><a class=nav-link href=#rem-单位><span class=nav-number>3.0.1.1.</span> <span class=nav-text>rem 单位</span></a></li></ol></li><li class="nav-item nav-level-3"><a class=nav-link href=#媒体查询><span class=nav-number>3.0.2.</span> <span class=nav-text>媒体查询</span></a><ol class=nav-child><li class="nav-item nav-level-4"><a class=nav-link href=#什么是媒体查询><span class=nav-number>3.0.2.1.</span> <span class=nav-text>什么是媒体查询</span></a></li><li class="nav-item nav-level-4"><a class=nav-link href=#媒体查询语法规范><span class=nav-number>3.0.2.2.</span> <span class=nav-text>媒体查询语法规范</span></a></li></ol></li><li class="nav-item nav-level-3"><a class=nav-link href=#less-基础><span class=nav-number>3.0.3.</span> <span class=nav-text>less 基础</span></a><ol class=nav-child><li class="nav-item nav-level-4"><a class=nav-link href=#维护-css-弊端><span class=nav-number>3.0.3.1.</span> <span class=nav-text>维护 css 弊端</span></a></li><li class="nav-item nav-level-4"><a class=nav-link href=#Less-介绍><span class=nav-number>3.0.3.2.</span> <span class=nav-text>Less 介绍</span></a></li></ol></li><li class="nav-item nav-level-3"><a class=nav-link href=#rem-适配方案><span class=nav-number>3.0.4.</span> <span class=nav-text>rem 适配方案</span></a><ol class=nav-child><li class="nav-item nav-level-4"><a class=nav-link href=#rem-实际开发适配方案-1><span class=nav-number>3.0.4.1.</span> <span class=nav-text>rem 实际开发适配方案 1</span></a></li></ol></li><li class="nav-item nav-level-3"><a class=nav-link href=#苏宁首页><span class=nav-number>3.0.5.</span> <span class=nav-text>苏宁首页</span></a></li><li class="nav-item nav-level-3"><a class=nav-link href=#rem-适配方案-2><span class=nav-number>3.0.6.</span> <span class=nav-text>rem 适配方案 2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class=nav-link href=#移动端-WEB-开发之响应式布局><span class=nav-number>4.</span> <span class=nav-text>移动端 WEB 开发之响应式布局</span></a><ol class=nav-child><li class="nav-item nav-level-3"><a class=nav-link href=#1-0-响应式开发原理><span class=nav-number>4.0.1.</span> <span class=nav-text>1.0 响应式开发原理</span></a><ol class=nav-child><li class="nav-item nav-level-4"><a class=nav-link href=#1-1-响应式开发原理><span class=nav-number>4.0.1.1.</span> <span class=nav-text>1.1 响应式开发原理</span></a></li><li class="nav-item nav-level-4"><a class=nav-link href=#1-2-响应式布局容器><span class=nav-number>4.0.1.2.</span> <span class=nav-text>1.2 响应式布局容器</span></a></li></ol></li><li class="nav-item nav-level-3"><a class=nav-link href=#2-0-bootstrap-的介绍><span class=nav-number>4.0.2.</span> <span class=nav-text>2.0 bootstrap 的介绍</span></a><ol class=nav-child><li class="nav-item nav-level-4"><a class=nav-link href=#2-1Bootstrap-简介><span class=nav-number>4.0.2.1.</span> <span class=nav-text>2.1Bootstrap 简介</span></a></li><li class="nav-item nav-level-4"><a class=nav-link href=#2-2-bootstrap-优点><span class=nav-number>4.0.2.2.</span> <span class=nav-text>2.2 bootstrap 优点</span></a></li><li class="nav-item nav-level-4"><a class=nav-link href=#2-3-版本简介><span class=nav-number>4.0.2.3.</span> <span class=nav-text>2.3 版本简介</span></a></li><li class="nav-item nav-level-4"><a class=nav-link href=#2-4bootstrap-基本使用><span class=nav-number>4.0.2.4.</span> <span class=nav-text>2.4bootstrap 基本使用</span></a></li><li class="nav-item nav-level-4"><a class=nav-link href=#2-5-bootstrap-布局容器><span class=nav-number>4.0.2.5.</span> <span class=nav-text>2.5 bootstrap 布局容器</span></a></li><li class="nav-item nav-level-4"><a class=nav-link href=#2-6-bootstrap-栅格系统><span class=nav-number>4.0.2.6.</span> <span class=nav-text>2.6 bootstrap 栅格系统</span></a></li></ol></li></ol></li></div></div></section><div class=back-to-top><i class="fa fa-arrow-up"></i> <span id=scrollpercent><span>0</span>%</span></div></div></aside></div></main><footer id=footer class=footer><div class=footer-inner><div class=copyright>&copy; <span itemprop=copyrightYear>2020</span> <span class=with-love><i class="fa fa-user"></i></span> <span class=author itemprop=copyrightHolder>hao ~</span></div><div class=powered-by>由 <a class=theme-link target=_blank href=https://hexo.io>Hexo</a> 强力驱动</div><span class=post-meta-divider>|</span><div class=theme-info>主题 &mdash; <a class=theme-link target=_blank href=https://github.com/iissnan/hexo-theme-next>NexT.Gemini</a> v5.1.4</div><div class=busuanzi-count><script async src=https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><span class=site-uv><i class="fa fa-user"></i> <span class=busuanzi-value id=busuanzi_value_site_uv></span></span> <span class=site-pv><i class="fa fa-eye"></i> <span class=busuanzi-value id=busuanzi_value_site_pv></span></span></div></div></footer></div><script type=text/javascript>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script><script type=text/javascript src="/lib/jquery/index.js?v=2.1.3"></script><script type=text/javascript src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type=text/javascript src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type=text/javascript src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type=text/javascript src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type=text/javascript src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type=text/javascript src="/js/src/utils.js?v=5.1.4"></script><script type=text/javascript src="/js/src/motion.js?v=5.1.4"></script><script type=text/javascript src="/js/src/affix.js?v=5.1.4"></script><script type=text/javascript src="/js/src/schemes/pisces.js?v=5.1.4"></script><script type=text/javascript src="/js/src/scrollspy.js?v=5.1.4"></script><script type=text/javascript src="/js/src/post-details.js?v=5.1.4"></script><script type=text/javascript src="/js/src/bootstrap.js?v=5.1.4"></script><script src=//cdn1.lncld.net/static/js/3.0.4/av-min.js></script><script src=//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js></script><script type=text/javascript>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'ncDT5BjhGbkB44nHTlcE9rse-gzGzoHsz',
+        appKey: 'QhBtYhw5HlvN6HkI4QGKni08',
+        placeholder: '来呀!快活呀! ~',
+        avatar:'wavatar',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script><script type=text/javascript>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script>AV.initialize("ncDT5BjhGbkB44nHTlcE9rse-gzGzoHsz", "QhBtYhw5HlvN6HkI4QGKni08");</script><script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script><script>
+  (function () {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script></body></html>

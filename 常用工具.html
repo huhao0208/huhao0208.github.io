@@ -1,0 +1,755 @@
+<!DOCTYPE html><html class="theme-next gemini use-motion" lang=zh-Hans><head><meta charset=UTF-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width, initial-scale=1, maximum-scale=1"><meta name=theme-color content=#222><script src="/lib/pace/pace.min.js?v=1.0.2"></script><link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel=stylesheet><meta http-equiv=Cache-Control content=no-transform><meta http-equiv=Cache-Control content=no-siteapp><link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel=stylesheet type=text/css><link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel=stylesheet type=text/css><link href="/css/main.css?v=5.1.4" rel=stylesheet type=text/css><link rel=apple-touch-icon sizes=180x180 href="/images/H.png?v=5.1.4"><link rel=icon type=image/png sizes=32x32 href="/images/favicon-32x32-next.ico?v=5.1.4"><link rel=icon type=image/png sizes=16x16 href="/images/favicon-16x16-next.ico?v=5.1.4"><link rel=mask-icon href="/images/logo.svg?v=5.1.4" color=#222><meta name=keywords content="blog, 博客, hao, 前端"><link rel=alternate href=/rss2.xml title=h-blog type=application/atom+xml><meta name=description content="富文本编辑器1.wangEditor http:&#x2F;&#x2F;www.wangeditor.com&#x2F; &lt;!DOCTYPE html&gt; &lt;html lang&#x3D;&quot;en&quot;&gt; &lt;head&gt; &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt; &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, in"><meta property=og:type content=article><meta property=og:title content=常用工具><meta property=og:url content=https://blog.huhao.ink/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7.html><meta property=og:site_name content=h-blog><meta property=og:description content="富文本编辑器1.wangEditor http:&#x2F;&#x2F;www.wangeditor.com&#x2F; &lt;!DOCTYPE html&gt; &lt;html lang&#x3D;&quot;en&quot;&gt; &lt;head&gt; &lt;meta charset&#x3D;&quot;UTF-8&quot;&gt; &lt;meta name&#x3D;&quot;viewport&quot; content&#x3D;&quot;width&#x3D;device-width, in"><meta property=article:published_time content=2020-07-22T00:10:33.000Z><meta property=article:modified_time content=2020-10-27T02:01:03.014Z><meta property=article:author content="hao ~"><meta property=article:tag content="前端 vue node"><meta name=twitter:card content=summary><script type=text/javascript id=hexo.configurations>
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":true},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":true,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script><link rel=canonical href=https://blog.huhao.ink/常用工具.html><title>常用工具 | h-blog</title><script type=text/javascript>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?20063670947234e4bdc0c9d19a9a4102";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><meta name=generator content="Hexo 4.2.1"></head><body itemscope itemtype=http://schema.org/WebPage lang=zh-Hans><div class="container sidebar-position-left page-post-detail"><div class=headband></div><header id=header class=header itemscope itemtype=http://schema.org/WPHeader><div class=header-inner><div class=site-brand-wrapper><div class=site-meta><div class=custom-logo-site-title><a href="/" class=brand rel=start><span class=logo-line-before><i></i></span><h1 class=site-title>h-blog</h1><span class=logo-line-after><i></i></span></a></div><h1 class=site-subtitle itemprop=description>千里之行，始于足下</h1></div><div class=site-nav-toggle><button><span class=btn-bar></span> <span class=btn-bar></span> <span class=btn-bar></span></button></div></div><nav class=site-nav><ul id=menu class=menu><li class="menu-item menu-item-home"><a href="/" rel=section><i class="menu-item-icon fa fa-fw fa-home"></i><br>首页</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel=section><i class="menu-item-icon fa fa-fw fa-tags"></i><br>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel=section><i class="menu-item-icon fa fa-fw fa-th"></i><br>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel=section><i class="menu-item-icon fa fa-fw fa-archive"></i><br>归档</a></li><li class="menu-item menu-item-search"><a href=javascript:; class=popup-trigger><i class="menu-item-icon fa fa-search fa-fw"></i><br>搜索</a></li></ul><div class=site-search><div class="popup search-popup local-search-popup"><div class="local-search-header clearfix"><span class=search-icon><i class="fa fa-search"></i></span> <span class=popup-btn-close><i class="fa fa-times-circle"></i></span><div class=local-search-input-wrapper><input autocomplete=off placeholder=搜索... spellcheck=false type=text id=local-search-input></div></div><div id=local-search-result></div></div></div></nav><meta name=keywords content="blog, 博客, hao, 前端"></div></header><main id=main class=main><div class=main-inner><div class=content-wrap><div id=content class=content><div id=posts class=posts-expand><article class="post post-type-normal" itemscope itemtype=http://schema.org/Article><div class=post-block><link itemprop=mainEntityOfPage href=https://blog.huhao.ink/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7.html><span hidden itemprop=author itemscope itemtype=http://schema.org/Person><meta itemprop=name content="hao ~"><meta itemprop=description><meta itemprop=image content=/images/avatar.png></span> <span hidden itemprop=publisher itemscope itemtype=http://schema.org/Organization><meta itemprop=name content=h-blog></span><header class=post-header><h2 class=post-title itemprop="name headline">常用工具</h2><div class=post-meta><span class=post-time><span class=post-meta-item-icon><i class="fa fa-calendar-o"></i></span> <span class=post-meta-item-text>发表于</span><time title=创建于 itemprop="dateCreated datePublished" datetime=2020-07-22T08:10:33+08:00>2020-07-22</time><span class=post-meta-divider>|</span> <span class=post-meta-item-icon><i class="fa fa-calendar-check-o"></i></span> <span class=post-meta-item-text>更新于&#58;</span><time title=更新于 itemprop=dateModified datetime=2020-10-27T10:01:03+08:00>2020-10-27</time></span> <span class=post-category><span class=post-meta-divider>|</span> <span class=post-meta-item-icon><i class="fa fa-folder-o"></i></span> <span class=post-meta-item-text>分类于</span> <span itemprop=about itemscope itemtype=http://schema.org/Thing><a href="/categories/%E6%9D%82%E9%A1%B9/" itemprop=url rel=index><span itemprop=name>杂项</span></a></span></span> <span class=post-comments-count><span class=post-meta-divider>|</span> <span class=post-meta-item-icon><i class="fa fa-comment-o"></i></span> <a href=/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7.html#comments itemprop=discussionUrl><span class="post-comments-count valine-comment-count" data-xid=/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7.html itemprop=commentCount></span></a></span> <span id=/%E5%B8%B8%E7%94%A8%E5%B7%A5%E5%85%B7.html class=leancloud_visitors data-flag-title=常用工具><span class=post-meta-divider>|</span> <span class=post-meta-item-icon><i class="fa fa-eye"></i></span> <span class=post-meta-item-text>阅读次数&#58;</span> <span class=leancloud-visitors-count></span></span> <span class=post-meta-divider>|</span> <span class=page-pv><i class="fa fa-file-o"></i> <span class=busuanzi-value id=busuanzi_value_page_pv></span></span></div></header><div class=post-body itemprop=articleBody><h1 id=富文本编辑器><a href=#富文本编辑器 class=headerlink title=富文本编辑器></a>富文本编辑器</h1><h2 id=1-wangEditor-http-www-wangeditor-com><a href=#1-wangEditor-http-www-wangeditor-com class=headerlink title="1.wangEditor http://www.wangeditor.com/"></a>1.wangEditor <a href="http://www.wangeditor.com/" target=_blank rel=noopener>http://www.wangeditor.com/</a></h2><pre class=language-html><code class=language-html>   <span class="token doctype">&lt;!DOCTYPE html></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>UTF-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width<span class="token punctuation">=</span>device-width, initial-scale<span class="token punctuation">=</span>1.0<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>ie<span class="token punctuation">=</span>edge<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Document<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>editor<span class="token punctuation">"</span></span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>&lt;h1<span class="token punctuation">></span>h11231313&lt;/h1<span class="token punctuation">></span><span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text/javascript<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>https://unpkg.com/wangeditor/release/wangEditor.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script language-javascript"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+       <span class="token keyword">var</span> E <span class="token operator">=</span> window<span class="token punctuation">.</span>wangEditor
+       <span class="token keyword">var</span> editor <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">E</span><span class="token punctuation">(</span><span class="token string">'#editor'</span><span class="token punctuation">)</span>
+       editor<span class="token punctuation">.</span>customConfig<span class="token punctuation">.</span>uploadFileName <span class="token operator">=</span> <span class="token string">'article'</span><span class="token punctuation">;</span> <span class="token comment" spellcheck>//设置文件上传的参数名称 name</span>
+       editor<span class="token punctuation">.</span>customConfig<span class="token punctuation">.</span>uploadImgServer <span class="token operator">=</span> <span class="token string">'/admin/upload'</span> <span class="token comment" spellcheck>//设置上传文件的服务器路径</span>
+       editor<span class="token punctuation">.</span>customConfig<span class="token punctuation">.</span>uploadImgParams <span class="token operator">=</span> <span class="token punctuation">{</span>
+           <span class="token comment" spellcheck>// 如果版本 &lt;=v3.1.0 ，属性值会自动进行 encode ，此处无需 encode</span>
+           <span class="token comment" spellcheck>// 如果版本 >=v3.1.1 ，属性值不会自动 encode ，如有需要自己手动 encode</span>
+           <span class="token comment" spellcheck>//token: 'abcdef12345'</span>
+           enctype<span class="token punctuation">:</span> <span class="token string">"multipart"</span>
+       <span class="token punctuation">}</span>
+       <span class="token comment" spellcheck>// 图片上传</span>
+       editor<span class="token punctuation">.</span>customConfig<span class="token punctuation">.</span>uploadImgHooks <span class="token operator">=</span> <span class="token punctuation">{</span>
+           before<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>xhr<span class="token punctuation">,</span> editor<span class="token punctuation">,</span> files<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>files<span class="token punctuation">)</span><span class="token punctuation">;</span>
+           <span class="token punctuation">}</span><span class="token punctuation">,</span>
+           success<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>xhr<span class="token punctuation">,</span> editor<span class="token punctuation">,</span> result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'success'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token comment" spellcheck>// 图片上传并返回结果，图片插入成功之后触发</span>
+               <span class="token comment" spellcheck>// xhr 是 XMLHttpRequst 对象，editor 是编辑器对象，result 是服务器端返回的结果</span>
+           <span class="token punctuation">}</span><span class="token punctuation">,</span>
+           fail<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>xhr<span class="token punctuation">,</span> editor<span class="token punctuation">,</span> result<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'插入出错'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token comment" spellcheck>// 图片上传并返回结果，但图片插入错误时触发</span>
+               <span class="token comment" spellcheck>// xhr 是 XMLHttpRequst 对象，editor 是编辑器对象，result 是服务器端返回的结果</span>
+           <span class="token punctuation">}</span><span class="token punctuation">,</span>
+           error<span class="token punctuation">:</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>xhr<span class="token punctuation">,</span> editor<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token string">'上传出错'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+               <span class="token comment" spellcheck>// 图片上传出错时触发</span>
+               <span class="token comment" spellcheck>// xhr 是 XMLHttpRequst 对象，editor 是编辑器对象</span>
+           <span class="token punctuation">}</span>
+       <span class="token punctuation">}</span>
+       <span class="token comment" spellcheck>// 编辑器内容变化触发</span>
+       editor<span class="token punctuation">.</span>customConfig<span class="token punctuation">.</span>onchange <span class="token operator">=</span> <span class="token keyword">function</span> <span class="token punctuation">(</span>html<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+               <span class="token comment" spellcheck>// 获取当前</span>
+              console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>html<span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token comment" spellcheck>// 将获取的值同步到 editor 的value上面 实现数据双向绑定</span>
+              document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"editor"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">setAttribute</span><span class="token punctuation">(</span><span class="token string">'value'</span><span class="token punctuation">,</span>html<span class="token punctuation">)</span>     
+           <span class="token punctuation">}</span>
+       <span class="token comment" spellcheck>// 或者 var editor = new E( document.getElementById('editor') )</span>
+       editor<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+       <span class="token comment" spellcheck>// 编辑器默认值 通过给editor设置value 达成    </span>
+       editor<span class="token punctuation">.</span>txt<span class="token punctuation">.</span><span class="token function">html</span><span class="token punctuation">(</span>document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"editor"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getAttribute</span><span class="token punctuation">(</span><span class="token string">'value'</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
+        <span class="token comment" spellcheck>//需要获取 文本编辑器内容直接获取 editor 的value值即可</span>
+       </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre><h2 id=2-QuillEditor><a href=#2-QuillEditor class=headerlink title=2.QuillEditor></a>2.QuillEditor</h2><pre class=language-html><code class=language-html>   <span class="token comment" spellcheck>&lt;!-- 组件内容 --></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>template</span><span class="token punctuation">></span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span><span class="token punctuation">></span></span>
+     <span class="token comment" spellcheck>&lt;!-- 图片上传组件辅助--></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>el-upload</span>
+      <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>avatar-uploader<span class="token punctuation">"</span></span>
+      <span class="token attr-name">:action</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>serverUrl<span class="token punctuation">"</span></span>
+      <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>img<span class="token punctuation">"</span></span>
+      <span class="token attr-name">:headers</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>header<span class="token punctuation">"</span></span>
+      <span class="token attr-name">:show-file-list</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>false<span class="token punctuation">"</span></span>
+      <span class="token attr-name">:on-success</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>uploadSuccess<span class="token punctuation">"</span></span>
+      <span class="token attr-name">:on-error</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>uploadError<span class="token punctuation">"</span></span>
+      <span class="token attr-name">:before-upload</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>beforeUpload<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>el-upload</span><span class="token punctuation">></span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>quill-editor</span>
+      <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>editor<span class="token punctuation">"</span></span>
+      <span class="token attr-name">v-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>content<span class="token punctuation">"</span></span>
+      <span class="token attr-name">ref</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>myQuillEditor<span class="token punctuation">"</span></span>
+      <span class="token attr-name">:options</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>editorOption<span class="token punctuation">"</span></span>
+      <span class="token attr-name">@blur</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>onEditorBlur($event)<span class="token punctuation">"</span></span> <span class="token attr-name">@focus</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>onEditorFocus($event)<span class="token punctuation">"</span></span>
+      <span class="token attr-name">@change</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>onEditorChange($event)<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>quill-editor</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>template</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script language-javascript">
+    <span class="token comment" spellcheck>// 工具栏配置</span>
+    <span class="token keyword">const</span> toolbarOptions <span class="token operator">=</span> <span class="token punctuation">[</span>
+     <span class="token punctuation">[</span><span class="token string">"bold"</span><span class="token punctuation">,</span> <span class="token string">"italic"</span><span class="token punctuation">,</span> <span class="token string">"underline"</span><span class="token punctuation">,</span> <span class="token string">"strike"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck>// 加粗 斜体 下划线 删除线</span>
+     <span class="token punctuation">[</span><span class="token string">"blockquote"</span><span class="token punctuation">,</span> <span class="token string">"code-block"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck>// 引用 代码块</span>
+     <span class="token punctuation">[</span><span class="token punctuation">{</span> header<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> header<span class="token punctuation">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck>// 1、2 级标题</span>
+     <span class="token punctuation">[</span><span class="token punctuation">{</span> list<span class="token punctuation">:</span> <span class="token string">"ordered"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> list<span class="token punctuation">:</span> <span class="token string">"bullet"</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck>// 有序、无序列表</span>
+     <span class="token punctuation">[</span><span class="token punctuation">{</span> script<span class="token punctuation">:</span> <span class="token string">"sub"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> script<span class="token punctuation">:</span> <span class="token string">"super"</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck>// 上标/下标</span>
+     <span class="token punctuation">[</span><span class="token punctuation">{</span> indent<span class="token punctuation">:</span> <span class="token string">"-1"</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> indent<span class="token punctuation">:</span> <span class="token string">"+1"</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck>// 缩进</span>
+     <span class="token comment" spellcheck>// [{'direction': 'rtl'}],             // 文本方向</span>
+     <span class="token punctuation">[</span><span class="token punctuation">{</span> size<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"small"</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token string">"large"</span><span class="token punctuation">,</span> <span class="token string">"huge"</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck>// 字体大小</span>
+     <span class="token punctuation">[</span><span class="token punctuation">{</span> header<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">6</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck>// 标题</span>
+     <span class="token punctuation">[</span><span class="token punctuation">{</span> color<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> background<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck>// 字体颜色、字体背景颜色</span>
+     <span class="token punctuation">[</span><span class="token punctuation">{</span> font<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck>// 字体种类</span>
+     <span class="token punctuation">[</span><span class="token punctuation">{</span> align<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token punctuation">}</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck>// 对齐方式</span>
+     <span class="token punctuation">[</span><span class="token string">"clean"</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token comment" spellcheck>// 清除文本格式</span>
+     <span class="token punctuation">[</span><span class="token string">"link"</span><span class="token punctuation">,</span> <span class="token string">"image"</span><span class="token punctuation">,</span> <span class="token string">"video"</span><span class="token punctuation">]</span> <span class="token comment" spellcheck>// 链接、图片、视频</span>
+    <span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> <span class="token punctuation">{</span> quillEditor <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"vue-quill-editor"</span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> <span class="token string">"quill/dist/quill.core.css"</span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> <span class="token string">"quill/dist/quill.snow.css"</span><span class="token punctuation">;</span>
+    <span class="token keyword">import</span> <span class="token string">"quill/dist/quill.bubble.css"</span><span class="token punctuation">;</span>
+    <span class="token keyword">export</span> <span class="token keyword">default</span> <span class="token punctuation">{</span>
+     props<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token comment" spellcheck>/*编辑器的内容*/</span>
+      value<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+       type<span class="token punctuation">:</span> String
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment" spellcheck>/*图片大小*/</span>
+      maxSize<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+       type<span class="token punctuation">:</span> Number<span class="token punctuation">,</span>
+       <span class="token keyword">default</span><span class="token punctuation">:</span> <span class="token number">4000</span> <span class="token comment" spellcheck>//kb</span>
+      <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span><span class="token punctuation">,</span>
+     components<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      quillEditor
+     <span class="token punctuation">}</span><span class="token punctuation">,</span>
+     <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span>
+       content<span class="token punctuation">:</span> <span class="token keyword">this</span><span class="token punctuation">.</span>value<span class="token punctuation">,</span>
+       quillUpdateImg<span class="token punctuation">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span> <span class="token comment" spellcheck>// 根据图片上传状态来确定是否显示loading动画，刚开始是false,不显示</span>
+       editorOption<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        placeholder<span class="token punctuation">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+        theme<span class="token punctuation">:</span> <span class="token string">"snow"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck>// or 'bubble'</span>
+        placeholder<span class="token punctuation">:</span> <span class="token string">"请输入内容"</span><span class="token punctuation">,</span>
+        modules<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+         toolbar<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+          container<span class="token punctuation">:</span> toolbarOptions<span class="token punctuation">,</span>
+          <span class="token comment" spellcheck>// container: "#toolbar",</span>
+          handlers<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+           image<span class="token punctuation">:</span> <span class="token keyword">function</span><span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>value<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+             <span class="token comment" spellcheck>// 触发input框选择图片文件</span>
+             document<span class="token punctuation">.</span><span class="token function">querySelector</span><span class="token punctuation">(</span><span class="token string">".avatar-uploader input"</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">click</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+             <span class="token keyword">this</span><span class="token punctuation">.</span>quill<span class="token punctuation">.</span><span class="token function">format</span><span class="token punctuation">(</span><span class="token string">"image"</span><span class="token punctuation">,</span> <span class="token boolean">false</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+           <span class="token punctuation">}</span><span class="token punctuation">,</span>
+           <span class="token comment" spellcheck>// link: function(value) {</span>
+           <span class="token comment" spellcheck>//  if (value) {</span>
+           <span class="token comment" spellcheck>//   var href = prompt('请输入url');</span>
+           <span class="token comment" spellcheck>//   this.quill.format("link", href);</span>
+           <span class="token comment" spellcheck>//  } else {</span>
+           <span class="token comment" spellcheck>//   this.quill.format("link", false);</span>
+           <span class="token comment" spellcheck>//  }</span>
+           <span class="token comment" spellcheck>// },</span>
+          <span class="token punctuation">}</span>
+         <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+       <span class="token punctuation">}</span><span class="token punctuation">,</span>
+       serverUrl<span class="token punctuation">:</span> <span class="token string">"/v1/blog/imgUpload"</span><span class="token punctuation">,</span> <span class="token comment" spellcheck>// 这里写你要上传的图片服务器地址</span>
+       header<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck>// token: sessionStorage.token</span>
+       <span class="token punctuation">}</span> <span class="token comment" spellcheck>// 有的图片服务器要求请求头需要有token</span>
+      <span class="token punctuation">}</span><span class="token punctuation">;</span>
+     <span class="token punctuation">}</span><span class="token punctuation">,</span>
+     methods<span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      <span class="token function">onEditorBlur</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck>//失去焦点事件</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function">onEditorFocus</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck>//获得焦点事件</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function">onEditorChange</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck>//内容改变事件</span>
+       <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">$emit</span><span class="token punctuation">(</span><span class="token string">"input"</span><span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">.</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment" spellcheck>// 富文本图片上传前</span>
+      <span class="token function">beforeUpload</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck>// 显示loading动画</span>
+       <span class="token keyword">this</span><span class="token punctuation">.</span>quillUpdateImg <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token function">uploadSuccess</span><span class="token punctuation">(</span>res<span class="token punctuation">,</span> file<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck>// res为图片服务器返回的数据</span>
+       <span class="token comment" spellcheck>// 获取富文本组件实例</span>
+       <span class="token keyword">let</span> quill <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>$refs<span class="token punctuation">.</span>myQuillEditor<span class="token punctuation">.</span>quill<span class="token punctuation">;</span>
+       <span class="token comment" spellcheck>// 如果上传成功</span>
+       <span class="token keyword">if</span> <span class="token punctuation">(</span>res<span class="token punctuation">.</span>code <span class="token operator">==</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token comment" spellcheck>// 获取光标所在位置</span>
+        <span class="token keyword">let</span> length <span class="token operator">=</span> quill<span class="token punctuation">.</span><span class="token function">getSelection</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>index<span class="token punctuation">;</span>
+        <span class="token comment" spellcheck>// 插入图片 res.url为服务器返回的图片地址</span>
+        quill<span class="token punctuation">.</span><span class="token function">insertEmbed</span><span class="token punctuation">(</span>length<span class="token punctuation">,</span> <span class="token string">"image"</span><span class="token punctuation">,</span> res<span class="token punctuation">.</span>url<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token comment" spellcheck>// 调整光标到最后</span>
+        quill<span class="token punctuation">.</span><span class="token function">setSelection</span><span class="token punctuation">(</span>length <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+        <span class="token keyword">this</span><span class="token punctuation">.</span>$message<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"图片插入失败"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+       <span class="token punctuation">}</span>
+       <span class="token comment" spellcheck>// loading动画消失</span>
+       <span class="token keyword">this</span><span class="token punctuation">.</span>quillUpdateImg <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">,</span>
+      <span class="token comment" spellcheck>// 富文本图片上传失败</span>
+      <span class="token function">uploadError</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+       <span class="token comment" spellcheck>// loading动画消失</span>
+       <span class="token keyword">this</span><span class="token punctuation">.</span>quillUpdateImg <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+       <span class="token keyword">this</span><span class="token punctuation">.</span>$message<span class="token punctuation">.</span><span class="token function">error</span><span class="token punctuation">(</span><span class="token string">"图片插入失败"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span>
+     <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+   </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">></span></span><span class="token style language-css">
+    <span class="token selector"><span class="token class">.editor</span> </span><span class="token punctuation">{</span>
+     <span class="token property">line-height</span><span class="token punctuation">:</span> normal <span class="token important">!important</span><span class="token punctuation">;</span>
+     <span class="token property">height</span><span class="token punctuation">:</span> <span class="token number">800</span>px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-tooltip</span><span class="token attribute">[data-mode=link]</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"请输入链接地址:"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-tooltip.ql-editing</span> a<span class="token class">.ql-action</span><span class="token pseudo-element">::after</span> </span><span class="token punctuation">{</span>
+     <span class="token property">border-right</span><span class="token punctuation">:</span> <span class="token number">0</span>px<span class="token punctuation">;</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'保存'</span><span class="token punctuation">;</span>
+     <span class="token property">padding-right</span><span class="token punctuation">:</span> <span class="token number">0</span>px<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-tooltip</span><span class="token attribute">[data-mode=video]</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">"请输入视频地址:"</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-size</span> <span class="token class">.ql-picker-label</span><span class="token pseudo-element">::before</span>,
+    <span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-size</span> <span class="token class">.ql-picker-item</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'14px'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-size</span> <span class="token class">.ql-picker-label</span><span class="token attribute">[data-value=small]</span><span class="token pseudo-element">::before</span>,
+    <span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-size</span> <span class="token class">.ql-picker-item</span><span class="token attribute">[data-value=small]</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'10px'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-size</span> <span class="token class">.ql-picker-label</span><span class="token attribute">[data-value=large]</span><span class="token pseudo-element">::before</span>,
+    <span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-size</span> <span class="token class">.ql-picker-item</span><span class="token attribute">[data-value=large]</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'18px'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-size</span> <span class="token class">.ql-picker-label</span><span class="token attribute">[data-value=huge]</span><span class="token pseudo-element">::before</span>,
+    <span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-size</span> <span class="token class">.ql-picker-item</span><span class="token attribute">[data-value=huge]</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'32px'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-header</span> <span class="token class">.ql-picker-label</span><span class="token pseudo-element">::before</span>,
+    <span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-header</span> <span class="token class">.ql-picker-item</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'文本'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-header</span> <span class="token class">.ql-picker-label</span><span class="token attribute">[data-value="1"]</span><span class="token pseudo-element">::before</span>,
+    <span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-header</span> <span class="token class">.ql-picker-item</span><span class="token attribute">[data-value="1"]</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'标题1'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-header</span> <span class="token class">.ql-picker-label</span><span class="token attribute">[data-value="2"]</span><span class="token pseudo-element">::before</span>,
+    <span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-header</span> <span class="token class">.ql-picker-item</span><span class="token attribute">[data-value="2"]</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'标题2'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-header</span> <span class="token class">.ql-picker-label</span><span class="token attribute">[data-value="3"]</span><span class="token pseudo-element">::before</span>,
+    <span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-header</span> <span class="token class">.ql-picker-item</span><span class="token attribute">[data-value="3"]</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'标题3'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-header</span> <span class="token class">.ql-picker-label</span><span class="token attribute">[data-value="4"]</span><span class="token pseudo-element">::before</span>,
+    <span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-header</span> <span class="token class">.ql-picker-item</span><span class="token attribute">[data-value="4"]</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'标题4'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-header</span> <span class="token class">.ql-picker-label</span><span class="token attribute">[data-value="5"]</span><span class="token pseudo-element">::before</span>,
+    <span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-header</span> <span class="token class">.ql-picker-item</span><span class="token attribute">[data-value="5"]</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'标题5'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-header</span> <span class="token class">.ql-picker-label</span><span class="token attribute">[data-value="6"]</span><span class="token pseudo-element">::before</span>,
+    <span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-header</span> <span class="token class">.ql-picker-item</span><span class="token attribute">[data-value="6"]</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'标题6'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-font</span> <span class="token class">.ql-picker-label</span><span class="token pseudo-element">::before</span>,
+    <span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-font</span> <span class="token class">.ql-picker-item</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'标准字体'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-font</span> <span class="token class">.ql-picker-label</span><span class="token attribute">[data-value=serif]</span><span class="token pseudo-element">::before</span>,
+    <span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-font</span> <span class="token class">.ql-picker-item</span><span class="token attribute">[data-value=serif]</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'衬线字体'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    <span class="token selector"><span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-font</span> <span class="token class">.ql-picker-label</span><span class="token attribute">[data-value=monospace]</span><span class="token pseudo-element">::before</span>,
+    <span class="token class">.ql-snow</span> <span class="token class">.ql-picker.ql-font</span> <span class="token class">.ql-picker-item</span><span class="token attribute">[data-value=monospace]</span><span class="token pseudo-element">::before</span> </span><span class="token punctuation">{</span>
+     <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'等宽字体'</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+   </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>style</span><span class="token punctuation">></span></span>
+   // 父组件应用直接v-model 绑定数据即可</code></pre></div><footer class=post-footer><div class=post-nav><div class="post-nav-next post-nav-item"><a href=/%E7%A7%BB%E5%8A%A8web%E5%B8%83%E5%B1%80.html rel=next title=移动web布局><i class="fa fa-chevron-left"></i> 移动web布局</a></div><span class=post-nav-divider></span><div class="post-nav-prev post-nav-item"><a href=/netx%E4%B8%BB%E9%A2%98%E4%BD%BF%E7%94%A8%E9%97%AE%E9%A2%98.html rel=prev title=hexo使用问题>hexo使用问题 <i class="fa fa-chevron-right"></i></a></div></div></footer></div></article><div class=post-spread><script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script></div></div></div><div class=comments id=comments></div></div><div class=sidebar-toggle><div class=sidebar-toggle-line-wrap><span class="sidebar-toggle-line sidebar-toggle-line-first"></span> <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span> <span class="sidebar-toggle-line sidebar-toggle-line-last"></span></div></div><aside id=sidebar class=sidebar><div id=sidebar-dimmer></div><div class=sidebar-inner><ul class="sidebar-nav motion-element"><li class="sidebar-nav-toc sidebar-nav-active" data-target=post-toc-wrap>文章目录</li><li class=sidebar-nav-overview data-target=site-overview-wrap>站点概览</li></ul><section class="site-overview-wrap sidebar-panel"><div class=site-overview><div class="site-author motion-element" itemprop=author itemscope itemtype=http://schema.org/Person><img class=site-author-image itemprop=image src=/images/avatar.png alt="hao ~"><p class=site-author-name itemprop=name>hao ~</p><p class="site-description motion-element" itemprop=description></p></div><nav class="site-state motion-element"><div class="site-state-item site-state-posts"><a href=/archives/%7C%7C%20archive><a href=/archives><span class=site-state-item-count>29</span> <span class=site-state-item-name>日志</span></a></a></div><div class="site-state-item site-state-categories"><a href=/categories/index.html><span class=site-state-item-count>12</span> <span class=site-state-item-name>分类</span></a></div><div class="site-state-item site-state-tags"><a href=/tags/index.html><span class=site-state-item-count>28</span> <span class=site-state-item-name>标签</span></a></div></nav><div class="feed-link motion-element"><a href=/rss2.xml rel=alternate><i class="fa fa-rss"></i> RSS</a></div><div class="links-of-author motion-element"><span class=links-of-author-item><a href=https://github.com/huhao0208 target=_blank title=GitHub><i class="fa fa-fw fa-github"></i>GitHub</a></span> <span class=links-of-author-item><a href=mailto:845957223@qq.com target=_blank title=E-Mail><i class="fa fa-fw fa-envelope"></i>E-Mail</a></span></div></div></section><section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active"><div class=post-toc><div class=post-toc-content><ol class=nav><li class="nav-item nav-level-1"><a class=nav-link href=#富文本编辑器><span class=nav-number>1.</span> <span class=nav-text>富文本编辑器</span></a><ol class=nav-child><li class="nav-item nav-level-2"><a class=nav-link href=#1-wangEditor-http-www-wangeditor-com><span class=nav-number>1.1.</span> <span class=nav-text>1.wangEditor http:&#x2F;&#x2F;www.wangeditor.com&#x2F;</span></a></li><li class="nav-item nav-level-2"><a class=nav-link href=#2-QuillEditor><span class=nav-number>1.2.</span> <span class=nav-text>2.QuillEditor</span></a></li></ol></li></ol></div></div></section><div class=back-to-top><i class="fa fa-arrow-up"></i> <span id=scrollpercent><span>0</span>%</span></div></div></aside></div></main><footer id=footer class=footer><div class=footer-inner><div class=copyright>&copy; <span itemprop=copyrightYear>2020</span> <span class=with-love><i class="fa fa-user"></i></span> <span class=author itemprop=copyrightHolder>hao ~</span></div><div class=powered-by>由 <a class=theme-link target=_blank href=https://hexo.io>Hexo</a> 强力驱动</div><span class=post-meta-divider>|</span><div class=theme-info>主题 &mdash; <a class=theme-link target=_blank href=https://github.com/iissnan/hexo-theme-next>NexT.Gemini</a> v5.1.4</div><div class=busuanzi-count><script async src=https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js></script><span class=site-uv><i class="fa fa-user"></i> <span class=busuanzi-value id=busuanzi_value_site_uv></span></span> <span class=site-pv><i class="fa fa-eye"></i> <span class=busuanzi-value id=busuanzi_value_site_pv></span></span></div></div></footer></div><script type=text/javascript>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script><script type=text/javascript src="/lib/jquery/index.js?v=2.1.3"></script><script type=text/javascript src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script><script type=text/javascript src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script><script type=text/javascript src="/lib/velocity/velocity.min.js?v=1.2.1"></script><script type=text/javascript src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script><script type=text/javascript src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script><script type=text/javascript src="/js/src/utils.js?v=5.1.4"></script><script type=text/javascript src="/js/src/motion.js?v=5.1.4"></script><script type=text/javascript src="/js/src/affix.js?v=5.1.4"></script><script type=text/javascript src="/js/src/schemes/pisces.js?v=5.1.4"></script><script type=text/javascript src="/js/src/scrollspy.js?v=5.1.4"></script><script type=text/javascript src="/js/src/post-details.js?v=5.1.4"></script><script type=text/javascript src="/js/src/bootstrap.js?v=5.1.4"></script><script src=//cdn1.lncld.net/static/js/3.0.4/av-min.js></script><script src=//cdn.jsdelivr.net/npm/valine/dist/Valine.min.js></script><script type=text/javascript>
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: true,
+        appId: 'ncDT5BjhGbkB44nHTlcE9rse-gzGzoHsz',
+        appKey: 'QhBtYhw5HlvN6HkI4QGKni08',
+        placeholder: '来呀!快活呀! ~',
+        avatar:'wavatar',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script><script type=text/javascript>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><script src=https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js></script><script>AV.initialize("ncDT5BjhGbkB44nHTlcE9rse-gzGzoHsz", "QhBtYhw5HlvN6HkI4QGKni08");</script><script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script><script>
+  (function () {
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    } else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script></body></html>
